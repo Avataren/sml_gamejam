@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://24mklgbuvtb7"]
+
+[ext_resource type="Script" path="res://addons/tileworldgen/dock.gd" id="1_4xph8"]
+
+[node name="Ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4xph8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.004
+anchor_bottom = 0.998
+offset_right = 0.391968
+offset_bottom = 0.295959
+
+[node name="GenWorldButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Generate world"
+
+[node name="SeedSpinBox" type="SpinBox" parent="VBoxContainer"]
+layout_mode = 2
+max_value = 1e+09
+
+[connection signal="value_changed" from="VBoxContainer/SeedSpinBox" to="." method="_on_seed_spin_box_value_changed"]
