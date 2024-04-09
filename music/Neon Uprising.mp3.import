@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dj8d4i0ar5ywf"
+path="res://.godot/imported/Neon Uprising.mp3-66385e115ee48a31418b43d8bf427e22.mp3str"
+
+[deps]
+
+source_file="res://music/Neon Uprising.mp3"
+dest_files=["res://.godot/imported/Neon Uprising.mp3-66385e115ee48a31418b43d8bf427e22.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -18,15 +18,81 @@ anchors_preset = -1
 anchor_right = 1.004
 anchor_bottom = 0.998
 offset_right = 0.391968
-offset_bottom = 0.295959
+offset_bottom = 100.0
+
+[node name="Size" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Size"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Size
+"
+
+[node name="SizeSpinBox" type="SpinBox" parent="VBoxContainer/Size"]
+layout_mode = 2
+min_value = 128.0
+max_value = 2048.0
+step = 128.0
+value = 512.0
+
+[node name="Octaves" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Octaves"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Octaves
+"
+
+[node name="OctaveSpinBox" type="SpinBox" parent="VBoxContainer/Octaves"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 10.0
+value = 5.0
+
+[node name="Seed" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Seed"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Seed"
+
+[node name="SeedSpinBox" type="SpinBox" parent="VBoxContainer/Seed"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1e+09
+value = 123.0
+
+[node name="Frequency" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Frequency"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Frequency"
+
+[node name="FrequencySpinBox" type="SpinBox" parent="VBoxContainer/Frequency"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 0.001
+max_value = 0.01
+step = 0.001
+value = 0.005
 
 [node name="GenWorldButton" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Generate world"
 
-[node name="SeedSpinBox" type="SpinBox" parent="VBoxContainer"]
+[node name="GenFaunaButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-max_value = 1e+09
+text = "Generate fauna"
 
-[connection signal="value_changed" from="VBoxContainer/SeedSpinBox" to="." method="_on_seed_spin_box_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Size/SizeSpinBox" to="." method="_on_size_spin_box_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Octaves/OctaveSpinBox" to="." method="_on_octave_spin_box_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Seed/SeedSpinBox" to="." method="_on_seed_spin_box_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Frequency/FrequencySpinBox" to="." method="_on_frequency_spin_box_value_changed"]

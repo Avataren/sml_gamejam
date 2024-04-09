@@ -8,6 +8,8 @@ func _enter_tree():
 	# Load the dock scene and instantiate it.
 	dock = preload("res://addons/tileworldgen/dock.tscn").instantiate()
 	dock.get_node("VBoxContainer/GenWorldButton").connect("pressed", gen_world)
+	dock.get_node("VBoxContainer/GenFaunaButton").connect("pressed", gen_fauna)
+	
 	world_gen_script = preload("res://addons/tileworldgen/procedural_landscape.gd").new()
 	# Add the loaded scene to the docks.
 	add_control_to_dock(DOCK_SLOT_LEFT_UL, dock)
@@ -22,4 +24,7 @@ func _exit_tree():
 
 func gen_world():
 	print("Gen world!");
-	world_gen_script.generate_landscape(dock.seed)
+	world_gen_script.generate_landscape(dock.seed, dock.octaves, dock.frequency, dock.width, dock.height)
+
+func gen_fauna():
+	print("Gen fauna!");
