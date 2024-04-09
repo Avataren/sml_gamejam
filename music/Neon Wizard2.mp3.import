@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cecntpkt2vlfp"
+path="res://.godot/imported/Neon Wizard2.mp3-c6537263cfaf39dc716a52ad27ebefa7.mp3str"
+
+[deps]
+
+source_file="res://music/Neon Wizard2.mp3"
+dest_files=["res://.godot/imported/Neon Wizard2.mp3-c6537263cfaf39dc716a52ad27ebefa7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

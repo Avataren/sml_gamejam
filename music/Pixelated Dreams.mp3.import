@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ctspm3153ygi0"
+path="res://.godot/imported/Pixelated Dreams.mp3-6181a9bdbdf5d48d1bb308f867d073ae.mp3str"
+
+[deps]
+
+source_file="res://music/Pixelated Dreams.mp3"
+dest_files=["res://.godot/imported/Pixelated Dreams.mp3-6181a9bdbdf5d48d1bb308f867d073ae.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
