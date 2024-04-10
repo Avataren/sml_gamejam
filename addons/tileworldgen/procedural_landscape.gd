@@ -45,12 +45,10 @@ func create_procedural_map(tilemap: TileMap):
 	var thread_results = []
 	for thread in threads:
 		var data = thread.wait_to_finish();
-		print ("got data!")
 		thread_results.append(data)
 		
 	for result in thread_results:
 		all_changes+=result	
-	print("hangs?")
 	
 	var end_time = Time.get_ticks_msec() # End timing
 	var duration = end_time - start_time # Calculate duration
@@ -64,11 +62,24 @@ func create_procedural_map(tilemap: TileMap):
 	end_time = Time.get_ticks_msec() # End timing
 	duration = end_time - start_time # Calculate duration
 	start_time = Time.get_ticks_msec()
-	print("Generation completed! Updating cells.. ", duration, " ms")
+	print("Updating cells.. ", duration, " ms")
 	BetterTerrain.update_terrain_area(tilemap, GROUND_LAYER, Rect2i(-_width / 2, -_height / 2, _width, _height))
 	BetterTerrain.update_terrain_area(tilemap, GRASS_LAYER, Rect2i(-_width / 2, -_height / 2, _width, _height))
 	BetterTerrain.update_terrain_area(tilemap, FAUNA_LAYER, Rect2i(-_width / 2, -_height / 2, _width, _height))
 	BetterTerrain.update_terrain_area(tilemap, TREE_LAYER, Rect2i(-_width / 2, -_height / 2, _width, _height))
+	
+	#var source = tilemap.tile_set.get_source(7) as TileSetAtlasSource
+	#print ("source is ", source)
+	#print ("tile count:",source.get_tiles_count() )
+	#for i in source.get_tiles_count():
+		#var coords = source.get_tile_id(i)
+		#var tile_data = source.get_tile_data(coords, 0)
+		#var occlusion_polygon = tile_data.get_occluder(0)
+		#if (occlusion_polygon):
+			#print("updateing cullmode")
+					## and set the cull_mode to counter clockwise
+			#occlusion_polygon.cull_mode = OccluderPolygon2D.CULL_COUNTER_CLOCKWISE
+					
 	end_time = Time.get_ticks_msec() # End timing
 	duration = end_time - start_time # Calculate duration
 	print("Done. Duration for terrain update: ", duration, " ms")    
@@ -95,7 +106,6 @@ func _thread_function(tilemap, start_y, end_y):
 				if randf() > 0.9:
 					changes.append({"position": Vector2i(x, y), "layer": FAUNA_LAYER, "terrain": 4})
 					
-	print ("Thread finished, returning");
 	return changes
 			
 	

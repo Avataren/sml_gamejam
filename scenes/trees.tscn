@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b40j47w2ec2ne"]
+
+[ext_resource type="Shader" path="res://shaders/wind.gdshader" id="1_dgutr"]
+[ext_resource type="Texture2D" uid="uid://6vq7w60ld67b" path="res://tilemaps/Trees.png" id="2_alj37"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qyfkx"]
+shader = ExtResource("1_dgutr")
+shader_parameter/speed = 2.0
+shader_parameter/wind = 20.0
+shader_parameter/height = 64.0
+shader_parameter/fadeHeight = 0.1
+shader_parameter/noise_scale = 100.0
+
+[node name="Trees" type="Sprite2D"]
+material = SubResource("ShaderMaterial_qyfkx")
+position = Vector2(193, 264)
+texture = ExtResource("2_alj37")

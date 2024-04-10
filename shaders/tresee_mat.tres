@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ru4rfohaqsk7"]
+
+[ext_resource type="Shader" path="res://shaders/wind.gdshader" id="1_pph4k"]
+
+[resource]
+shader = ExtResource("1_pph4k")
+shader_parameter/speed = 0.5
+shader_parameter/wind = 10.0
+shader_parameter/height = 64.0
+shader_parameter/fadeHeight = 0.01
+shader_parameter/noise_scale = 100.0

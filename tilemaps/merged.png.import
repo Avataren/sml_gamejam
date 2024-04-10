@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmn6itggyev8f"
-path="res://.godot/imported/wiz2.png-bb4598dc8d35a7aba2777bff15d68625.ctex"
+uid="uid://b5noiucxxvycc"
+path="res://.godot/imported/merged.png-edcca990467f4d2ca383afb904ede411.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player/wiz2.png"
-dest_files=["res://.godot/imported/wiz2.png-bb4598dc8d35a7aba2777bff15d68625.ctex"]
+source_file="res://tilemaps/merged.png"
+dest_files=["res://.godot/imported/merged.png-edcca990467f4d2ca383afb904ede411.ctex"]
 
 [params]
 

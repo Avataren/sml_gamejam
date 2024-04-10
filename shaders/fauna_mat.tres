@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dhyoj70ohu1po"]
+
+[ext_resource type="Shader" path="res://shaders/wind.gdshader" id="1_ts2wu"]
+
+[resource]
+shader = ExtResource("1_ts2wu")
+shader_parameter/speed = 4.0
+shader_parameter/wind = 1.0
+shader_parameter/height = 16.0
+shader_parameter/fadeHeight = 0.1
+shader_parameter/noise_scale = 2.0

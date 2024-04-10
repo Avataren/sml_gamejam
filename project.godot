@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
+WorldGenScript="*res://addons/tileworldgen/procedural_landscape.gd"
 
 [display]
 
@@ -26,7 +27,6 @@ window/size/viewport_height=1080
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/stretch/scale=2.0
-window/stretch/scale_mode="integer"
 
 [dotnet]
 
