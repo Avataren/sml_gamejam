@@ -10,6 +10,10 @@ var threads := []
 var noise = FastNoiseLite.new()
 # Array to hold all changes, preallocated to the total number of cells
 
+const GROUND_LAYER = 0
+const GRASS_LAYER = 1
+const FAUNA_LAYER = 2
+
 func _init():
 	print("Init called")
 	# Pre-create threads
@@ -60,8 +64,9 @@ func create_procedural_map(tilemap: TileMap):
 	duration = end_time - start_time # Calculate duration
 	start_time = Time.get_ticks_msec()
 	print("Generation completed! Updating cells.. ", duration, " ms")
-	BetterTerrain.update_terrain_area(tilemap, 0, Rect2i(-_width / 2, -_height / 2, _width, _height))
-	BetterTerrain.update_terrain_area(tilemap, 1, Rect2i(-_width / 2, -_height / 2, _width, _height))
+	BetterTerrain.update_terrain_area(tilemap, GROUND_LAYER, Rect2i(-_width / 2, -_height / 2, _width, _height))
+	BetterTerrain.update_terrain_area(tilemap, GRASS_LAYER, Rect2i(-_width / 2, -_height / 2, _width, _height))
+	BetterTerrain.update_terrain_area(tilemap, FAUNA_LAYER, Rect2i(-_width / 2, -_height / 2, _width, _height))
 	end_time = Time.get_ticks_msec() # End timing
 	duration = end_time - start_time # Calculate duration
 	print("Done. Duration for terrain update: ", duration, " ms")    
@@ -72,16 +77,20 @@ func _thread_function(tilemap, start_y, end_y):
 		for x in range(-_width / 2, _width / 2):
 			var h = noise.get_noise_2d(x, y)
 			if h < -0.1:
-				changes.append ({"position": Vector2i(x, y), "layer": 0, "terrain": 0})
+				changes.append ({"position": Vector2i(x, y), "layer": GROUND_LAYER, "terrain": 0})
 			else:
-				changes.append({"position": Vector2i(x, y), "layer": 0, "terrain": 1})
+				changes.append({"position": Vector2i(x, y), "layer": GROUND_LAYER, "terrain": 1})
+
+			if (h > 0.0):
+					changes.append({"position": Vector2i(x, y), "layer": GRASS_LAYER, "terrain": 5})
+
 				
 			if (h > -0.05):
-				if randf() > 0.75:
-					changes.append({"position": Vector2i(x, y), "layer": 1, "terrain": 3})
-			if (h < -0.13 && h > -0.14):
-				if randf() > 0.95:
-					changes.append({"position": Vector2i(x, y), "layer": 1, "terrain": 4})
+				if randf() > 0.2:
+					changes.append({"position": Vector2i(x, y), "layer": FAUNA_LAYER, "terrain": 3})
+			if (h < -0.13 && h > -0.145):
+				if randf() > 0.9:
+					changes.append({"position": Vector2i(x, y), "layer": FAUNA_LAYER, "terrain": 4})
 					
 	print ("Thread finished, returning");
 	return changes
