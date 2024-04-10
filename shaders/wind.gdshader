@@ -45,10 +45,11 @@ float noise( in vec2 p )
 
 void vertex() {
     // Normalized position of the vertex from the top (0.0 at the top to 1.0 at the bottom).
+	vec2 worldPos = (MODEL_MATRIX * vec4(VERTEX, 0.0, 1.0)).xy;
     float normalizedHeight = VERTEX.y / height;
 	float normalizedWidth = VERTEX.x / height;
     float influence = clamp(1.0 - (normalizedHeight / fadeHeight), 0.0, 1.0);
-	float n = noise(vec2(VERTEX.x + TIME*0.01, VERTEX.y+TIME*0.01))*noise_scale * influence;
+	float n = noise(vec2(worldPos.x + TIME*0.01, worldPos.y+TIME*0.01))*noise_scale * influence;
     VERTEX.x += mix(0.0, sin(TIME * speed + n) * wind, pow(influence, 2.0));
 }
 

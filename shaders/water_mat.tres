@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d0x2c1ew5d75s"]
+
+[ext_resource type="Shader" path="res://shaders/tilewater.gdshader" id="1_81y3h"]
+
+[resource]
+shader = ExtResource("1_81y3h")

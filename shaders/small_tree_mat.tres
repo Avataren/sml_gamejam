@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cciavmr3f31w3"]
+
+[ext_resource type="Shader" path="res://shaders/wind.gdshader" id="1_r5cng"]
+
+[resource]
+shader = ExtResource("1_r5cng")
+shader_parameter/speed = 1.0
+shader_parameter/wind = 5.0
+shader_parameter/height = 32.0
+shader_parameter/fadeHeight = 0.01
+shader_parameter/noise_scale = 25.0
