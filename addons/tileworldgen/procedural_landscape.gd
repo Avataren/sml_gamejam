@@ -13,6 +13,7 @@ var noise = FastNoiseLite.new()
 const GROUND_LAYER = 0
 const GRASS_LAYER = 1
 const FAUNA_LAYER = 2
+const TREE_LAYER = 3
 
 func _init():
 	print("Init called")
@@ -67,6 +68,7 @@ func create_procedural_map(tilemap: TileMap):
 	BetterTerrain.update_terrain_area(tilemap, GROUND_LAYER, Rect2i(-_width / 2, -_height / 2, _width, _height))
 	BetterTerrain.update_terrain_area(tilemap, GRASS_LAYER, Rect2i(-_width / 2, -_height / 2, _width, _height))
 	BetterTerrain.update_terrain_area(tilemap, FAUNA_LAYER, Rect2i(-_width / 2, -_height / 2, _width, _height))
+	BetterTerrain.update_terrain_area(tilemap, TREE_LAYER, Rect2i(-_width / 2, -_height / 2, _width, _height))
 	end_time = Time.get_ticks_msec() # End timing
 	duration = end_time - start_time # Calculate duration
 	print("Done. Duration for terrain update: ", duration, " ms")    
@@ -82,8 +84,9 @@ func _thread_function(tilemap, start_y, end_y):
 				changes.append({"position": Vector2i(x, y), "layer": GROUND_LAYER, "terrain": 1})
 
 			if (h > 0.0):
-					changes.append({"position": Vector2i(x, y), "layer": GRASS_LAYER, "terrain": 5})
-
+				changes.append({"position": Vector2i(x, y), "layer": GRASS_LAYER, "terrain": 5})
+				if randf() > 0.98:
+					changes.append({"position": Vector2i(x, y), "layer": TREE_LAYER, "terrain": 6})
 				
 			if (h > -0.05):
 				if randf() > 0.2:
