@@ -43,7 +43,7 @@ gravity = Vector3(0, -32, 0)
 radial_accel_min = 4.55
 radial_accel_max = 6.45
 scale_curve = SubResource("CurveTexture_nif3n")
-color = Color(1, 0.482353, 0, 0.988235)
+color = Color(0.858824, 0.105882, 0.384314, 0.988235)
 color_ramp = SubResource("GradientTexture1D_0tp3q")
 alpha_curve = SubResource("CurveTexture_utx3h")
 turbulence_enabled = true
@@ -66,8 +66,18 @@ texture = ExtResource("2_s63yo")
 centered = false
 offset = Vector2(-34.14, -72)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Sprite2D"]
-position = Vector2(14, -68)
+[node name="SpellBookParticles" type="GPUParticles2D" parent="Sprite2D"]
+show_behind_parent = true
+position = Vector2(-15, -52)
+amount = 256
+process_material = SubResource("ParticleProcessMaterial_2sfpp")
+randomness = 1.0
+interp_to_end = 0.01
+local_coords = true
+trail_enabled = true
+
+[node name="StaffParticles" type="GPUParticles2D" parent="Sprite2D"]
+position = Vector2(15, -68)
 amount = 256
 process_material = SubResource("ParticleProcessMaterial_2sfpp")
 randomness = 1.0
@@ -81,6 +91,4 @@ shape = SubResource("CapsuleShape2D_lorja")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1, 2)
-zoom = Vector2(2, 2)
-position_smoothing_enabled = true
 position_smoothing_speed = 15.0
