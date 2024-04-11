@@ -40,11 +40,11 @@ float water(vec2 uv)
 
 void fragment() {
 	vec4 col = texture(TEXTURE,UV);
-	if (col.b > 0.4 && col.g > 0.3)
+	if (col.r < 0.035)
 	{
 		vec2 offset = vec2(TIME * 0.06+ global_pos.x*0.0035, TIME*0.1+ global_pos.y*0.0035);
 		float w = water(offset);
-		vec3 final_col = posterize(mix(col.rgb,col.rgb*w,0.25));
+		vec3 final_col = abs(posterize(mix(col.rgb,col.rgb*w,0.25)));
 		col=vec4(final_col,1);
 	}
 	COLOR = col;

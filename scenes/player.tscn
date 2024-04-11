@@ -13,11 +13,12 @@ point_count = 2
 curve = SubResource("Curve_xyd3w")
 
 [sub_resource type="Gradient" id="Gradient_0c45o"]
-offsets = PackedFloat32Array(0, 0.570588, 1)
-colors = PackedColorArray(0.819608, 1, 0.227451, 1, 0.273873, 0.273873, 0.273873, 1, 0, 0, 0, 0.956863)
+offsets = PackedFloat32Array(0, 0.55942, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.273873, 0.273873, 0.273873, 1, 0, 0, 0, 0.956863)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_0tp3q"]
 gradient = SubResource("Gradient_0c45o")
+use_hdr = true
 
 [sub_resource type="Curve" id="Curve_nkony"]
 _data = [Vector2(0.00632912, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -45,7 +46,7 @@ gravity = Vector3(0, -32, 0)
 radial_accel_min = 4.55
 radial_accel_max = 6.45
 scale_curve = SubResource("CurveTexture_nif3n")
-color = Color(0.858824, 0.105882, 0.384314, 0.988235)
+color = Color(3, 0.639216, 0.501961, 0.988235)
 color_ramp = SubResource("GradientTexture1D_0tp3q")
 alpha_curve = SubResource("CurveTexture_utx3h")
 turbulence_enabled = true
@@ -105,7 +106,7 @@ position_smoothing_speed = 15.0
 light_mask = 3
 position = Vector2(14, -67)
 color = Color(0.956863, 0.945098, 0.921569, 1)
-energy = 1.2
+energy = 0.8
 shadow_filter = 1
 shadow_filter_smooth = 1.0
 texture = ExtResource("3_c131q")

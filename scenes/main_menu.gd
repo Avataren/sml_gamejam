@@ -32,4 +32,4 @@ func _on_toggle_fullscreen_button_pressed():
 	if (mode == DisplayServer.WINDOW_MODE_FULLSCREEN):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
