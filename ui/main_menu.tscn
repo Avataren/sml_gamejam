@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://dotv6e06oic8p"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_2ghqx"]
+[ext_resource type="Texture2D" uid="uid://bn31cpqcp7aar" path="res://ui/bg1.webp" id="1_135sa"]
+[ext_resource type="Theme" uid="uid://1opsxcmfql7d" path="res://ui/main_theme.tres" id="2_2ypk4"]
+[ext_resource type="PackedScene" uid="uid://kn1wbsolk1gm" path="res://world.tscn" id="2_lf5po"]
+[ext_resource type="AudioStream" uid="uid://cwt5dna8n16wn" path="res://ui/Enchanting Fury.mp3" id="3_t30c0"]
+
+[node name="MainMenu" type="Node2D"]
+position = Vector2(957, 538)
+script = ExtResource("1_2ghqx")
+first_level = ExtResource("2_lf5po")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
+position = Vector2(957, 538)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_135sa")
+expand_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.5
+offset_top = -85.0
+offset_right = 104.5
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_2ypk4")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="ToggleFullscreenButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Toggle fullscreen"
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_t30c0")
+autoplay = true
+
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ToggleFullscreenButton" to="." method="_on_toggle_fullscreen_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

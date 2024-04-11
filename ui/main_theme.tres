@@ -7,3 +7,4 @@ default_font = ExtResource("1_tgs1h")
 Button/font_sizes/font_size = 48
 Fonts/fonts/large = ExtResource("1_tgs1h")
 Fonts/fonts/normal = ExtResource("1_tgs1h")
+VBoxContainer/constants/separation = 16
