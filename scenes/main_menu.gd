@@ -4,6 +4,7 @@ extends Node2D
 @onready var music=$AudioStreamPlayer
 @onready var modulator=$CanvasLayer/CanvasModulate
 # Called when the node enters the scene tree for the first time.
+
 func _ready():
 	pass # Replace with function body.
 
@@ -18,10 +19,11 @@ func _on_exit_button_pressed():
 
 func _on_start_button_pressed():
 	if (first_level):
-		var tween1=modulator.create_tween()
-		tween1.tween_property(modulator, "color", Color.BLACK,1.0)
-		music.create_tween().tween_property(music, "volume_db", -60, 1.0)
-		tween1.connect("finished",load_level)
+		var tween1=get_tree().create_tween()
+		var tween2=get_tree().create_tween()
+		tween1.tween_property(modulator, "color", Color.BLACK,0.5)
+		tween2.tween_property(music, "volume_db", -60, 0.6)
+		tween2.connect("finished",load_level)
 
 func load_level():
 		get_tree().root.add_child(first_level.instantiate())
@@ -32,4 +34,4 @@ func _on_toggle_fullscreen_button_pressed():
 	if (mode == DisplayServer.WINDOW_MODE_FULLSCREEN):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)

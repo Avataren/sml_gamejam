@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
 WorldGenScript="*res://addons/tileworldgen/procedural_landscape.gd"
+Global="*res://scripts/global.gd"
 
 [display]
 

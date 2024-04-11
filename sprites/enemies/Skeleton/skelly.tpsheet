@@ -1,0 +1,108 @@
+{
+	"textures": [
+		{
+			"image": "skelly-0.png",
+			"size": {
+				"w": 1804,
+				"h": 456
+			},
+			"sprites": [
+				{
+					"filename": "Attack.png",
+					"region": {
+						"x": 1,
+						"y": 1,
+						"w": 1200,
+						"h": 150
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Death.png",
+					"region": {
+						"x": 1203,
+						"y": 1,
+						"w": 600,
+						"h": 150
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Idle.png",
+					"region": {
+						"x": 1,
+						"y": 153,
+						"w": 600,
+						"h": 150
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Shield.png",
+					"region": {
+						"x": 603,
+						"y": 153,
+						"w": 600,
+						"h": 150
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Take Hit.png",
+					"region": {
+						"x": 1,
+						"y": 305,
+						"w": 600,
+						"h": 150
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Walk.png",
+					"region": {
+						"x": 603,
+						"y": 305,
+						"w": 600,
+						"h": 150
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:22b3a9c4c9d875fea6bbd2e4657c91ae:4a0e26d5f888abaf47cd711e33a406a0:233ea77ad1afac735830c226c87cb059$"
+	}
+}
