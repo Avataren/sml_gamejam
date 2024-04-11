@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxmoqymg65gea"
+path="res://.godot/imported/Shadows of the Night2.mp3-103893423caf154c6275c5fa6509c757.mp3str"
+
+[deps]
+
+source_file="res://music/Shadows of the Night2.mp3"
+dest_files=["res://.godot/imported/Shadows of the Night2.mp3-103893423caf154c6275c5fa6509c757.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

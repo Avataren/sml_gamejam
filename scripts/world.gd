@@ -16,6 +16,12 @@ var music= [
 	preload("res://music/Neon Uprising2.mp3"),
 	preload("res://music/Pixelated Dreams.mp3"),
 	preload("res://music/Pixelated Dreams2.mp3"),
+	preload("res://music/Arcane Odyssey.mp3"),
+	preload("res://music/Midnight Spell.mp3"),
+	preload("res://music/Midnight Spell2.mp3"),
+	preload("res://music/Shadows of the Night.mp3"),
+	preload("res://music/Shadows of the Night2.mp3")
+	
 ]
 var current_song:=0
 
@@ -40,10 +46,5 @@ func start_fade_out():
 	tween.tween_property(music_player, "volume_db", -60, fade_out_duration).set_trans(Tween.EASE_OUT)
 	tween.connect("finished",_on_loop_sound)
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_fadeout_timer_timeout():
 	start_fade_out()

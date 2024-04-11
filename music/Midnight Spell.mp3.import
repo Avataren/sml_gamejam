@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d0eim2dmsbnth"
+path="res://.godot/imported/Midnight Spell.mp3-8b3706722dfe05988032a05f5def3aed.mp3str"
+
+[deps]
+
+source_file="res://music/Midnight Spell.mp3"
+dest_files=["res://.godot/imported/Midnight Spell.mp3-8b3706722dfe05988032a05f5def3aed.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

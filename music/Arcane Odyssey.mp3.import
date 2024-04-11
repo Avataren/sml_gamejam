@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cnx3jnpm5nl2g"
+path="res://.godot/imported/Arcane Odyssey.mp3-7afb64af9275ed45be508e4dff57d706.mp3str"
+
+[deps]
+
+source_file="res://music/Arcane Odyssey.mp3"
+dest_files=["res://.godot/imported/Arcane Odyssey.mp3-7afb64af9275ed45be508e4dff57d706.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
