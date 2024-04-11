@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://1opsxcmfql7d"]
+
+[ext_resource type="FontFile" uid="uid://c7mhxxglhgvjl" path="res://ui/Enchanted Land.otf" id="1_tgs1h"]
+
+[resource]
+default_font = ExtResource("1_tgs1h")
+Button/font_sizes/font_size = 48
+Fonts/fonts/large = ExtResource("1_tgs1h")
+Fonts/fonts/normal = ExtResource("1_tgs1h")
