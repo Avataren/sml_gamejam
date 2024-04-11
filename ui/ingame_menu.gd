@@ -2,6 +2,9 @@ extends Control
 
 @export var music_player:AudioStreamPlayer
 signal go_to_menu
+signal return_to_game
+
+	
 func _on_exit_game_button_pressed():
 	get_tree().quit()
 
@@ -16,3 +19,4 @@ func _on_exit_to_menu_button_pressed():
 	#var main_menu = load("res://ui/main_menu.tscn")
 	#get_tree().root.add_child(main_menu.instantiate())
 	#queue_free()		
+	

@@ -6,7 +6,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
-	pass # Replace with function body.
+	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,8 +26,9 @@ func _on_start_button_pressed():
 		tween2.connect("finished",load_level)
 
 func load_level():
-		get_tree().root.add_child(first_level.instantiate())
-		queue_free()
+	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_MAILBOX)
+	get_tree().root.add_child(first_level.instantiate())
+	queue_free()
 
 func _on_toggle_fullscreen_button_pressed():
 	var mode = DisplayServer.window_get_mode()
