@@ -26,7 +26,7 @@ func _on_start_button_pressed():
 		tween2.connect("finished",load_level)
 
 func load_level():
-	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_MAILBOX)
+	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	get_tree().root.add_child(first_level.instantiate())
 	queue_free()
 

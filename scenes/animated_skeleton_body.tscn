@@ -1,7 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bcw7pt5uotbvl"]
+[gd_scene load_steps=12 format=3 uid="uid://bcw7pt5uotbvl"]
 
 [ext_resource type="Script" path="res://scenes/animated_skeleton_body.gd" id="1_71ish"]
 [ext_resource type="Texture2D" uid="uid://1m3a6qcjm3n2" path="res://sprites/enemies/Skeleton/skelly-0.png" id="1_obt5c"]
+[ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="3_hrrpt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aa0am"]
+radius = 15.0
 
 [sub_resource type="Animation" id="Animation_1jpjs"]
 resource_name = "attack"
@@ -10,7 +14,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("mob_sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -27,7 +31,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("mob_sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -44,7 +48,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("mob_sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -61,7 +65,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("mob_sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -78,7 +82,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("mob_sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -95,7 +99,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("mob_sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -115,25 +119,31 @@ _data = {
 "walk": SubResource("Animation_i81rr")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_aa0am"]
-radius = 15.0
-
 [node name="enemy_skeleton" type="CharacterBody2D"]
+y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_71ish")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_obt5c")
-offset = Vector2(0, -27.055)
-hframes = 12
-vframes = 3
-frame = 12
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, -22)
+shape = SubResource("CircleShape2D_aa0am")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_e8wwn")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, -13)
-shape = SubResource("CircleShape2D_aa0am")
+[node name="mob_sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("1_obt5c")
+offset = Vector2(0, -36.275)
+hframes = 12
+vframes = 3
+
+[node name="shadow" type="Sprite2D" parent="mob_sprite"]
+modulate = Color(0.196078, 0.196078, 0.196078, 0.352941)
+show_behind_parent = true
+position = Vector2(3.555, 25.48)
+scale = Vector2(0.78125, 0.447011)
+texture = ExtResource("3_hrrpt")
+offset = Vector2(0, -82.155)

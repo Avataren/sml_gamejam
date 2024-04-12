@@ -26,14 +26,16 @@ var music= [
 	preload("res://music/Shadows of the Night2.mp3")
 ]
 var current_song:=0
-
+@export var darkness:Color = Color.WHITE
 func _ready():
+	$CanvasModulate.color = darkness;
+	%ColorRect.color = Color.BLACK
+	await get_tree().create_tween().tween_property(%ColorRect,"color",Color(0.,0.,0.,0.), 2.0).set_ease(Tween.EASE_OUT)
 	randomize();
 	music.shuffle();
 	#music_player.connect("finished", _on_loop_sound)
 	get_tree().paused = false
 	_on_loop_sound()
-	
 	
 func _on_loop_sound():
 	print("Starting next song")

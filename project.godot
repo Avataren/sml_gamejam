@@ -75,9 +75,7 @@ escape={
 [physics]
 
 2d/run_on_separate_thread=true
-common/max_physics_steps_per_frame=1
 2d/physics_engine="GodotPhysics2D"
-2d/solver/solver_iterations=1
 
 [rendering]
 

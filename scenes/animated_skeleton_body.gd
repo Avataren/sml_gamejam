@@ -26,9 +26,9 @@ func _physics_process(delta):
 		move_and_slide()
 		
 		if direction.x > 0:
-			$Sprite2D.scale.x = 1  # Assuming your sprite faces right by default
+			%mob_sprite.scale.x = 1  # Assuming your sprite faces right by default
 		elif direction.x < 0:
-			$Sprite2D.scale.x = -1
+			%mob_sprite.scale.x = -1
 	
 		if (distance < attack_distance):
 			$AnimationPlayer.play("attack")

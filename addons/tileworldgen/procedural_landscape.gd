@@ -15,6 +15,9 @@ const GRASS_LAYER = 1
 const FAUNA_LAYER = 2
 const TREE_LAYER = 3
 
+const TILEMAP_SIZE = 128
+
+
 func _init():
 	print("Init called")
 	# Pre-create threads
