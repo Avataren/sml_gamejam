@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://bfdyy7cvrck45"]
+
+[ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="1_gk7jd"]
+[ext_resource type="Script" path="res://spells/missile.gd" id="1_q2ags"]
+[ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="3_5wyjl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3kk73"]
+radius = 4.0
+
+[sub_resource type="Curve" id="Curve_hw7j5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8of6k"]
+curve = SubResource("Curve_hw7j5")
+
+[sub_resource type="Gradient" id="Gradient_hay4a"]
+offsets = PackedFloat32Array(0.427773, 1)
+colors = PackedColorArray(1.5, 0.5, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xlnqn"]
+gradient = SubResource("Gradient_hay4a")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_qwbgv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.987376, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_efgym"]
+curve = SubResource("Curve_qwbgv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lmghk"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -50, 0)
+emission_shape = 1
+emission_sphere_radius = 16.0
+spread = 8.617
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_efgym")
+color_ramp = SubResource("GradientTexture1D_xlnqn")
+alpha_curve = SubResource("CurveTexture_8of6k")
+turbulence_enabled = true
+turbulence_noise_strength = 0.83
+turbulence_noise_scale = 0.824
+
+[node name="Missile" type="Area2D"]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_q2ags")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_3kk73")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_gk7jd")
+offset = Vector2(0, -50)
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+y_sort_enabled = true
+position = Vector2(0, -48)
+scale = Vector2(4, 4)
+energy = 0.5
+texture = ExtResource("3_5wyjl")
+texture_scale = 0.5
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+scale = Vector2(0.25, 0.25)
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_lmghk")
+texture = ExtResource("1_gk7jd")
+lifetime = 0.2
+trail_lifetime = 0.4
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
