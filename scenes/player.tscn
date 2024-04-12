@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_dis8l"]
 [ext_resource type="Texture2D" uid="uid://dmn6itggyev8f" path="res://sprites/player/wiz2.png" id="2_s63yo"]
-[ext_resource type="Texture2D" uid="uid://ccex22yys0owr" path="res://sprites/lights/light2.png" id="3_c131q"]
+[ext_resource type="Texture2D" uid="uid://bdw7ygcnmyacm" path="res://sprites/lights/light3.png" id="4_7m1fn"]
 [ext_resource type="Texture2D" uid="uid://cx50ywka2hobc" path="res://sprites/player/wiz2_shadow.png" id="4_cpm22"]
 
 [sub_resource type="Curve" id="Curve_xyd3w"]
@@ -109,5 +109,5 @@ color = Color(0.956863, 0.945098, 0.921569, 1)
 energy = 1.5
 shadow_filter = 1
 shadow_filter_smooth = 1.0
-texture = ExtResource("3_c131q")
-texture_scale = 4.0
+texture = ExtResource("4_7m1fn")
+texture_scale = 2.0

@@ -15,8 +15,9 @@ const GRASS_LAYER = 1
 const FAUNA_LAYER = 2
 const TREE_LAYER = 3
 
-const TILEMAP_SIZE = 128
+const TILEMAP_SIZE = 64
 
+var tilemaps = {}
 
 func _init():
 	print("Init called")
@@ -29,6 +30,8 @@ func _init():
 
 		
 func create_procedural_map(tilemap: TileMap):
+	tilemaps = {Vector2i(0,0): tilemap}
+	
 	var start_time = Time.get_ticks_msec()
 	tilemap.clear()
 	noise.seed = _seed
@@ -97,13 +100,16 @@ func _thread_function(tilemap, start_y, end_y):
 			else:
 				changes.append({"position": Vector2i(x, y), "layer": GROUND_LAYER, "terrain": 1})
 
-			if (h > 0.0):
-				changes.append({"position": Vector2i(x, y), "layer": GRASS_LAYER, "terrain": 5})
-				if randf() > 0.98:
+			if (h > 0.1):
+				if randi_range(0, 100) <= 1:
 					changes.append({"position": Vector2i(x, y), "layer": TREE_LAYER, "terrain": 6})
+	
+			if (h > 0.25):
+				#if randi_range(0, 100) <= 85:
+					changes.append({"position": Vector2i(x, y), "layer": GRASS_LAYER, "terrain": 5})
 				
 			if (h > -0.05):
-				if randf() > 0.2:
+				if randf() > 0.7:
 					changes.append({"position": Vector2i(x, y), "layer": FAUNA_LAYER, "terrain": 3})
 			if (h < -0.13 && h > -0.145):
 				if randf() > 0.9:

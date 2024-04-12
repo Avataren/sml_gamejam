@@ -6,6 +6,6 @@
 shader = ExtResource("1_ts2wu")
 shader_parameter/speed = 5.0
 shader_parameter/wind = 1.5
-shader_parameter/height = 16.0
+shader_parameter/height = 32.0
 shader_parameter/fadeHeight = 0.1
 shader_parameter/noise_scale = 84.655
