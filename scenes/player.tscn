@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://r3n64r1l4g0h"]
+[gd_scene load_steps=16 format=3 uid="uid://r3n64r1l4g0h"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_dis8l"]
 [ext_resource type="Texture2D" uid="uid://dmn6itggyev8f" path="res://sprites/player/wiz2.png" id="2_s63yo"]
@@ -60,17 +60,23 @@ turbulence_noise_scale = 7.211
 radius = 11.0
 height = 24.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_veog7"]
+bg_color = Color(0, 0.552941, 0.207843, 1)
+
+[sub_resource type="Theme" id="Theme_707g4"]
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_veog7")
+
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_dis8l")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="PlayerBoundsArea" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(15, -69)
 collision_mask = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBoundsArea"]
 position = Vector2(-16, 68.5)
 shape = SubResource("RectangleShape2D_omb5e")
 
@@ -127,4 +133,20 @@ shape = SubResource("CapsuleShape2D_lorja")
 position = Vector2(-1, -1)
 position_smoothing_speed = 15.0
 
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+unique_name_in_owner = true
+offset_left = -23.0
+offset_top = -86.0
+offset_right = 24.0
+offset_bottom = -82.0
+theme = SubResource("Theme_707g4")
+value = 50.0
+show_percentage = false
+
+[connection signal="area_exited" from="PlayerBoundsArea" to="." method="_on_area_2d_area_exited"]

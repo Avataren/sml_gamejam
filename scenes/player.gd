@@ -5,16 +5,34 @@ const SPEED = 100.0
 
 var missile:PackedScene = load("res://spells/missile.tscn")
 var missile_timer := Timer.new()
-@onready var player_area:Area2D = %Area2D
+var max_hp = 10
+var hp = max_hp
+var alive = true
+
+@onready var player_area:Area2D = %PlayerBoundsArea
 func _ready():
 	Global.player = self
 	add_child(missile_timer)
-	missile_timer.wait_time = 0.25
+	missile_timer.wait_time = 0.5
 	missile_timer.one_shot = false
 	missile_timer.start()
 	missile_timer.timeout.connect(_shoot_missile)
+	%ProgressBar.max_value = max_hp
+	%ProgressBar.value = max_hp
+	
+func hit(damage):
+	hp -= damage;
+	%ProgressBar.value = hp;
+	print ("Hit, hp:", hp)
+	if (hp <= 0):
+		%ProgressBar.value = 0;
+		print ("dead!")
+		alive = false
+		missile_timer.stop()
+#		queue_free()
 	
 func _shoot_missile():
+		
 	var enemies = player_area.get_overlapping_bodies()
 	var closest_enemy;
 	var closest = INF
@@ -37,6 +55,9 @@ func _shoot_missile():
 	get_parent().add_child(m)
 	
 func _physics_process(delta):
+	if (!alive):
+		return;
+		
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * SPEED
 

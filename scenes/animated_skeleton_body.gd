@@ -7,8 +7,7 @@ var actual_velocity:= 0.0
 var alive = true
 
 func _ready():
-	add_to_group("enemies")
-	
+	#add_to_group("enemies")
 	_play_animation_rnd("idle")
 	last_position = global_position
 	
@@ -36,6 +35,9 @@ func hit(damage):
 		$AnimationPlayer.play("death")
 		await $AnimationPlayer.animation_finished
 		queue_free()
+	
+func _melee_attack():
+	Global.player.hit(1)
 	
 func _physics_process(delta):
 	if (!alive):

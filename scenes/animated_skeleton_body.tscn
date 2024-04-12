@@ -60,7 +60,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_ja20t"]
 resource_name = "hit"
 length = 0.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -140,7 +139,7 @@ texture = ExtResource("1_obt5c")
 offset = Vector2(0, -36.275)
 hframes = 12
 vframes = 3
-frame = 8
+frame = 24
 
 [node name="shadow" type="Sprite2D" parent="mob_sprite"]
 modulate = Color(0.196078, 0.196078, 0.196078, 0.352941)
