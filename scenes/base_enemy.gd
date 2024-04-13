@@ -8,7 +8,7 @@ var alive = true
 var spellbook:Spellbook
 var aim_point:Vector2
 @export var starting_spells:Array[SpellResource]
-
+@export var spell_distance := 1000.0
 func _ready():
 	add_to_group("enemy")
 	_play_animation_rnd("idle")
@@ -76,6 +76,10 @@ func _physics_process(delta):
 				_play_animation_rnd("idle")
 			else:
 				_play_animation_rnd("walk")
+				
+func can_cast_spell(spell_name):
+	var dist = aim_point.distance_to(Global.player.global_position)
+	return  dist < spell_distance
 				
 func get_spell_casting_position(spell_name):
 	return aim_point

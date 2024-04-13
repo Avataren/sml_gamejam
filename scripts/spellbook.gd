@@ -40,6 +40,8 @@ func cast_spell(spell_name: String, position: Vector2, direction: Vector2):
 	get_parent().get_parent().add_child(spell)
 
 func _on_spell_timer_timeout(spell_name: String):
-	var direction = get_parent().get_spell_casting_direction(spell_name)
-	var position = get_parent().get_spell_casting_position(spell_name) 
-	cast_spell(spell_name, position, direction)
+	var parent = get_parent()
+	var direction = parent.get_spell_casting_direction(spell_name)
+	var position = parent.get_spell_casting_position(spell_name) 
+	if (parent.can_cast_spell(spell_name)):
+		cast_spell(spell_name, position, direction)

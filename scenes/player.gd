@@ -76,6 +76,9 @@ func _on_area_2d_area_exited(area):
 	if (area.is_in_group("spell")):
 		area.queue_free()
 		
+func can_cast_spell(spell_name):
+	return true
+	
 func get_spell_casting_position(spell_name):
 	return %StaffPosition.global_position
 	
