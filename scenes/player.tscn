@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="4_r41mm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omb5e"]
-size = Vector2(2432, 1479)
+size = Vector2(1050, 657)
 
 [sub_resource type="Curve" id="Curve_xyd3w"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.997283, 0), 0.0, 0.0, 0, 0]
@@ -82,6 +82,7 @@ shape = SubResource("RectangleShape2D_omb5e")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 light_mask = 3
+position = Vector2(0, -51)
 color = Color(0.956863, 0.945098, 0.921569, 1)
 energy = 1.5
 shadow_filter = 1

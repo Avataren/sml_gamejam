@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="2_7av8b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aa0am"]
-radius = 15.0
+radius = 16.0
 
 [sub_resource type="Animation" id="Animation_n8ldo"]
 resource_name = "attack"
@@ -120,7 +120,7 @@ motion_mode = 1
 script = ExtResource("1_plgd8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, -21)
+position = Vector2(0, -21)
 shape = SubResource("CircleShape2D_aa0am")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -23,10 +23,10 @@ func _ready():
 func hit(damage):
 	hp -= damage;
 	%ProgressBar.value = hp;
-	print ("Hit, hp:", hp)
+	#print ("Hit, hp:", hp)
 	if (hp <= 0):
 		%ProgressBar.value = 0;
-		print ("dead!")
+		#print ("dead!")
 		alive = false
 		missile_timer.stop()
 #		queue_free()

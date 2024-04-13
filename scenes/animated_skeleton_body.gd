@@ -25,8 +25,8 @@ func _play_animation_rnd(animation_name):
 func hit(damage):
 	if (!alive):
 		return
-		
-	$AnimationPlayer.play("hit")
+	if ($AnimationPlayer.current_animation != "attack"):
+		$AnimationPlayer.play("hit")
 	hp -= damage
 	if (hp <= 0):
 		$CollisionShape2D.disabled = true
@@ -57,10 +57,11 @@ func _physics_process(delta):
 			%mob_sprite.scale.x = 1  # Assuming your sprite faces right by default
 		elif direction.x < 0:
 			%mob_sprite.scale.x = -1
-		if ($AnimationPlayer.current_animation != "hit" && $AnimationPlayer.current_animation != "death"):
-			if (distance < attack_distance):
-				$AnimationPlayer.play("attack")
-			elif (actual_velocity < speed*0.7):
+		
+		if (distance < attack_distance):
+			$AnimationPlayer.play("attack")
+		elif ($AnimationPlayer.current_animation != "hit" && $AnimationPlayer.current_animation != "death"):
+			if (actual_velocity < speed*0.7):
 				_play_animation_rnd("idle")
 			else:
 				_play_animation_rnd("walk")

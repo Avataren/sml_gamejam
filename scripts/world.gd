@@ -28,19 +28,21 @@ var music= [
 var current_song:=0
 @export var darkness:Color = Color.WHITE
 func _ready():
+	
 	$CanvasModulate.color = darkness;
-	%ColorRect.color = Color.BLACK
-	await get_tree().create_tween().tween_property(%ColorRect,"color",Color(0.,0.,0.,0.), 2.0).set_ease(Tween.EASE_OUT)
-	randomize();
+	#%ColorRect.color = Color.BLACK
+	#await get_tree().create_tween().tween_property(%ColorRect,"color",Color(0.,0.,0.,0.), 2.0).set_ease(Tween.EASE_OUT)
+	%WorldEnvironment.environment.tonemap_exposure=0.0;
+	await get_tree().create_tween().tween_property(%WorldEnvironment.environment,"tonemap_exposure",0.5, 2.0).set_ease(Tween.EASE_OUT)
 	music.shuffle();
 	#music_player.connect("finished", _on_loop_sound)
 	get_tree().paused = false
 	_on_loop_sound()
 	
 func _on_loop_sound():
-	print("Starting next song")
 	music_player.stream = music[current_song]
 	current_song = (current_song +1) % music.size()
+	print("Starting next song:", music[current_song])
 	music_player.volume_db = audio_volume;
 	music_player.play()
 	fadeout_timer.wait_time = song_length - fade_out_duration
