@@ -36,6 +36,7 @@ randomness = 0.12
 [node name="PointLight2D" type="PointLight2D" parent="Particles"]
 unique_name_in_owner = true
 position = Vector2(1, -51)
+color = Color(1, 0.678431, 0.356863, 1)
 texture = ExtResource("2_51687")
 
 [connection signal="finished" from="Particles" to="." method="_on_particles_finished"]

@@ -16,7 +16,6 @@ func _ready():
 func _process(delta):
 	position +=  direction * speed * delta
 
-
 func _on_body_entered(body):
 #	print ("hit:", body)
 	if (body.has_method("hit")):

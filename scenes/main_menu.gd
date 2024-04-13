@@ -8,7 +8,7 @@ extends Node2D
 func _ready():
 	randomize();
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
-
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -37,4 +37,6 @@ func _on_toggle_fullscreen_button_pressed():
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		
+
+func _on_audio_stream_player_finished():
+	$AudioStreamPlayer.play()
