@@ -32,8 +32,6 @@ var current_song:=0
 func _ready():
 	Global.game_over = false
 	$CanvasModulate.color = darkness;
-	#%ColorRect.color = Color.BLACK
-	#await get_tree().create_tween().tween_property(%ColorRect,"color",Color(0.,0.,0.,0.), 2.0).set_ease(Tween.EASE_OUT)
 	%WorldEnvironment.environment.tonemap_exposure=0.0;
 	get_tree().create_tween().tween_property(%WorldEnvironment.environment,"tonemap_exposure",0.5, 2.0).set_ease(Tween.EASE_OUT)
 	music.shuffle();
@@ -83,3 +81,6 @@ func end_game():
 func _on_fadeout_timer_timeout():
 	start_fade_out()
 
+func _on_area_2d_area_entered_kill(area):
+	if (area.is_in_group("spell")):
+		area.queue_free()	

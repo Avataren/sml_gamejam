@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://r3n64r1l4g0h"]
+[gd_scene load_steps=19 format=3 uid="uid://r3n64r1l4g0h"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_dis8l"]
 [ext_resource type="Resource" uid="uid://kraj17pdvec6" path="res://resources/fireball.tres" id="2_qmbsr"]
 [ext_resource type="Texture2D" uid="uid://dmn6itggyev8f" path="res://sprites/player/wiz2.png" id="2_s63yo"]
+[ext_resource type="Resource" uid="uid://wtmsl82pox06" path="res://resources/enemy_fireball.tres" id="3_mfdo5"]
 [ext_resource type="Texture2D" uid="uid://cx50ywka2hobc" path="res://sprites/player/wiz2_shadow.png" id="4_cpm22"]
 [ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="4_r41mm"]
 
@@ -75,12 +76,12 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_ctapn")
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_dis8l")
-starting_spells = Array[Resource("res://resources/SpellResource.gd")]([ExtResource("2_qmbsr")])
+starting_spells = Array[Resource("res://resources/SpellResource.gd")]([ExtResource("2_qmbsr"), ExtResource("3_mfdo5")])
 
 [node name="PlayerBoundsArea" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(15, -69)
-collision_mask = 6
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBoundsArea"]
 position = Vector2(-16, 68.5)

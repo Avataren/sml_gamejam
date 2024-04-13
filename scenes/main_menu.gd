@@ -8,7 +8,7 @@ extends Node2D
 func _ready():
 	randomize();
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
-	
+	#RenderingServer.set_default_clear_color(Color(0,0,0))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

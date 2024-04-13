@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://hc6evhn2t1mj"]
+
+[ext_resource type="Texture2D" uid="uid://br34kts1itqtm" path="res://sprites/lights/LampStand.png" id="1_x5m2r"]
+[ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="2_40x3w"]
+[ext_resource type="Texture2D" uid="uid://bk3rfg3nd1ekv" path="res://sprites/particles/firebowl.tga" id="3_ufuk2"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2sqhg"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_x50hj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lmtby"]
+curve = SubResource("Curve_x50hj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7umqt"]
+lifetime_randomness = 0.09
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 12.35
+angle_min = -180.0
+angle_max = 180.0
+spread = 180.0
+initial_velocity_min = 7.09
+initial_velocity_max = 26.59
+gravity = Vector3(0, -25, 0)
+scale_min = 0.1
+scale_max = 0.3
+alpha_curve = SubResource("CurveTexture_lmtby")
+
+[node name="Lamp" type="Node2D"]
+
+[node name="LampStand" type="Sprite2D" parent="."]
+texture = ExtResource("1_x5m2r")
+offset = Vector2(0, -64.62)
+
+[node name="PointLight2D" type="PointLight2D" parent="LampStand"]
+position = Vector2(0, -109)
+energy = 0.8
+texture = ExtResource("2_40x3w")
+texture_scale = 3.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="LampStand/PointLight2D"]
+material = SubResource("CanvasItemMaterial_2sqhg")
+position = Vector2(0, 1)
+amount = 48
+process_material = SubResource("ParticleProcessMaterial_7umqt")
+texture = ExtResource("3_ufuk2")
+lifetime = 1.1

@@ -19,8 +19,8 @@ func _ready():
 	%ProgressBar.value = max_hp
 	
 	spellbook = Spellbook.new()
-	spellbook.spell_collision_layer = 2	
-	spellbook.spell_collision_mask = 3
+	spellbook.spell_collision_layer = 2
+	spellbook.spell_collision_mask = 2
 	add_child(spellbook)
 	for spell in starting_spells:
 		spellbook.add_spell(spell)
@@ -85,6 +85,8 @@ func get_spell_casting_direction(spell_name):
 	var closest = INF
 	var staff_pos = get_spell_casting_position(spell_name)
 	for enemy in enemies:
+		if !enemy.is_in_group("enemy"):
+			continue
 		var enemy_dist = staff_pos.distance_to(enemy.aim_point)
 		if (enemy_dist < closest):
 			closest = enemy_dist

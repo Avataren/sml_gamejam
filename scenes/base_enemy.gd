@@ -10,7 +10,7 @@ var aim_point:Vector2
 @export var starting_spells:Array[SpellResource]
 
 func _ready():
-	#add_to_group("enemies")
+	add_to_group("enemy")
 	_play_animation_rnd("idle")
 	last_position = global_position
 	aim_point = $aim_point.global_position

@@ -6,10 +6,10 @@
 
 [resource]
 script = ExtResource("2_offrq")
-name = "Fireball"
+name = "LightningBall"
 hitpoints = 1
-cooldown = 4.0
-speed = 250.0
+cooldown = 2.5
+speed = 300.0
 damage = 1.0
 icon = ExtResource("1_u4jf0")
 spell_scene = ExtResource("3_waf4t")
