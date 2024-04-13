@@ -22,7 +22,6 @@ func add_spell(spell_resource: SpellResource):
 	timers[spell_resource.name] = timer
 
 func _exit_tree():
-	print ("spellbook exit")
 	for timer in timers:
 		timers[timer].queue_free()
 
@@ -31,7 +30,6 @@ func can_cast_spell(spell_name: String):
 
 func cast_spell(spell_name: String, position: Vector2, direction: Vector2):
 	#if can_cast_spell(spell_name):
-	print ("instantiating ", spells[spell_name].spell_scene)
 	var spell = spells[spell_name].spell_scene.instantiate()
 	spell.collision_layer = spell_collision_layer
 	spell.collision_mask = spell_collision_mask

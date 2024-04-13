@@ -23,6 +23,9 @@ func _close_ingame_menu():
 	_menu_active = false
 
 func _input(event):
+	if (Global.game_over):
+		return
+		
 	if (event.is_action_released("escape")):
 		if (!_menu_active):
 			get_tree().root.add_child(_instanced_menu)
