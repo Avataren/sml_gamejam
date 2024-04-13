@@ -13,4 +13,3 @@ func impact_effect():
 func death_effect():		
 		$GPUParticles2D.emitting = false
 		$Sprite2D.visible = false
-

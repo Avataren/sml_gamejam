@@ -7,6 +7,9 @@ signal spell_cast(spell)
 var spells = {}  # Dictionary to hold SpellResources by name
 var timers = {}  # Dictionary to hold timers for each spell
 
+var spell_collision_layer = 1
+var spell_collision_mask = 1
+
 func add_spell(spell_resource: SpellResource):
 	spells[spell_resource.name] = spell_resource
 	var timer = Timer.new()
@@ -30,10 +33,12 @@ func can_cast_spell(spell_name: String):
 func cast_spell(spell_name: String, position: Vector2, direction: Vector2):
 	#if can_cast_spell(spell_name):
 	var spell = spells[spell_name].spell_scene.instantiate()
+	spell.collision_layer = spell_collision_layer
+	spell.collision_mask = spell_collision_mask
 	spell.spell_resource = spells[spell_name]
 	spell.position = position
 	spell.direction = direction
-	get_tree().root.add_child(spell)
+	get_parent().get_parent().add_child(spell)
 
 func _on_spell_timer_timeout(spell_name: String):
 	var direction = get_parent().get_spell_casting_direction(spell_name)

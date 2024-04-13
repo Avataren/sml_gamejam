@@ -157,4 +157,7 @@ theme = SubResource("Theme_707g4")
 value = 50.0
 show_percentage = false
 
+[node name="aim_point" type="Marker2D" parent="."]
+position = Vector2(1, -18)
+
 [connection signal="area_exited" from="PlayerBoundsArea" to="." method="_on_area_2d_area_exited"]

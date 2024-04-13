@@ -5,11 +5,22 @@ var last_position: Vector2
 var actual_velocity:= 0.0
 @export var hp = 2
 var alive = true
+var spellbook:Spellbook
+var aim_point:Vector2
+@export var starting_spells:Array[SpellResource]
 
 func _ready():
 	#add_to_group("enemies")
 	_play_animation_rnd("idle")
 	last_position = global_position
+	aim_point = $aim_point.global_position
+	
+	spellbook = Spellbook.new()
+	spellbook.spell_collision_layer = 1
+	spellbook.spell_collision_mask = 1
+	add_child(spellbook)
+	for spell in starting_spells:
+		spellbook.add_spell(spell)	
 	
 func _play_animation_rnd(animation_name):
 	if ($AnimationPlayer.current_animation == animation_name):
@@ -42,7 +53,7 @@ func _melee_attack():
 func _physics_process(delta):
 	if (!alive):
 		return;
-		
+	aim_point = $aim_point.global_position
 	actual_velocity = (global_position - last_position).length() / delta
 	last_position = global_position	
 	if (Global.player):
@@ -65,3 +76,10 @@ func _physics_process(delta):
 				_play_animation_rnd("idle")
 			else:
 				_play_animation_rnd("walk")
+				
+func get_spell_casting_position(spell_name):
+	return aim_point
+	
+func get_spell_casting_direction(spell_name):
+
+	return (Global.player.aim_point - get_spell_casting_position(spell_name)).normalized()
