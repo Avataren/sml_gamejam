@@ -51,7 +51,7 @@ func _on_loop_sound():
 	
 func start_fade_out():
 	tween = get_tree().create_tween()
-	tween.tween_property(music_player, "volume_db", -60, fade_out_duration).set_trans(Tween.EASE_OUT)
+	tween.tween_property(music_player, "volume_db", -80, fade_out_duration).set_ease(Tween.EASE_OUT)
 	tween.connect("finished",_on_loop_sound)
 	
 func _process(_delta):
@@ -60,7 +60,7 @@ func _process(_delta):
 			print ("GAME_OVER")
 			Global.game_over=true
 			get_tree().create_tween().tween_property(%WorldEnvironment.environment,"tonemap_exposure",0.0, 2.0)
-			get_tree().create_tween().tween_property(music_player, "volume_db", -60, 0.5)
+			get_tree().create_tween().tween_property(music_player, "volume_db", -80, 0.5)
 			await get_tree().create_timer(0.6).timeout
 			print ("starting game over music")
 			music_player.stream = game_over_music
