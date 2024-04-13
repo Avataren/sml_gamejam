@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed := 50.0
 var last_position: Vector2
 var actual_velocity:= 0.0
-@export var hp = 5
+@export var hp = 2
 var alive = true
 
 func _ready():

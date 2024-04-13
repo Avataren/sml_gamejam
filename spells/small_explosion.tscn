@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://sgmsftfwvi3c"]
+
+[ext_resource type="Script" path="res://spells/small_explosion.gd" id="1_ehjud"]
+[ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="2_51687"]
+
+[sub_resource type="Curve" id="Curve_i7uk4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_03b1y"]
+curve = SubResource("Curve_i7uk4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3auay"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -50, 0)
+spread = 180.0
+initial_velocity_min = 58.51
+initial_velocity_max = 196.81
+gravity = Vector3(0, 98, 0)
+scale_min = 2.0
+scale_max = 8.0
+scale_curve = SubResource("CurveTexture_03b1y")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ehjud")
+
+[node name="Particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_3auay")
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.6
+randomness = 0.12
+
+[node name="PointLight2D" type="PointLight2D" parent="Particles"]
+unique_name_in_owner = true
+position = Vector2(1, -51)
+texture = ExtResource("2_51687")
+
+[connection signal="finished" from="Particles" to="." method="_on_particles_finished"]
