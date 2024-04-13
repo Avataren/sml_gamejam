@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpellResource" load_steps=4 format=3 uid="uid://kraj17pdvec6"]
+
+[ext_resource type="Texture2D" uid="uid://cme3aapcjf42p" path="res://icons/29.png" id="1_o6cqn"]
+[ext_resource type="Script" path="res://resources/SpellResource.gd" id="2_8pbld"]
+[ext_resource type="PackedScene" uid="uid://bfdyy7cvrck45" path="res://spells/missile.tscn" id="3_1sayx"]
+
+[resource]
+script = ExtResource("2_8pbld")
+name = "Fireball"
+hitpoints = 3
+cooldown = 1.0
+speed = 250.0
+damage = 2.0
+icon = ExtResource("1_o6cqn")
+spell_scene = ExtResource("3_1sayx")

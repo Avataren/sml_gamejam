@@ -6,12 +6,13 @@ class_name BaseSpell
 
 var direction = Vector2(1, 0)  # Default direction; should be set during instantiation based on caster's facing or target.
 var speed = 100.0
+var hitpoints = 1
 
 func _ready():
 	add_to_group("spell")
 	$GPUParticles2D.emitting = true
-	$Sprite.texture = load(spell_resource.icon_path) if spell_resource.icon_path else $Sprite.texture
 	speed = spell_resource.speed if spell_resource else speed
+	hitpoints = spell_resource.hitpoints if spell_resource else 1
 
 func _process(delta):
 	position += direction * speed * delta
@@ -19,13 +20,17 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.has_method("hit"):
 		body.hit(spell_resource.damage)
-		if spell_resource.explosion_scene:
-			var explosion_instance = spell_resource.explosion_scene.instance()
-			explosion_instance.global_position = global_position
-			get_parent().add_child(explosion_instance)
-			$GPUParticles2D.emitting = false
-			$Sprite.visible = false
-		_die()
+		impact_effect()
+		hitpoints -= 1
+		if (hitpoints <= 0):
+			death_effect()
+			_die()
 
+func death_effect():
+	pass
+
+func impact_effect():
+	pass
+	
 func _die():
 	queue_free()

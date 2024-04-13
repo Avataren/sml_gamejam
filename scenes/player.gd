@@ -6,7 +6,6 @@ const SPEED = 100.0
 @export var starting_spells:Array[SpellResource]
 
 var missile:PackedScene = load("res://spells/missile.tscn")
-var missile_timer := Timer.new()
 var max_hp = 10
 var hp = max_hp
 var alive = true
@@ -14,16 +13,11 @@ var alive = true
 @onready var player_area:Area2D = %PlayerBoundsArea
 func _ready():
 	Global.player = self
-	#add_child(missile_timer)
-	#missile_timer.wait_time = 0.5
-	#missile_timer.one_shot = false
-	#missile_timer.start()
-	#missile_timer.timeout.connect(_shoot_missile)
+
 	%ProgressBar.max_value = max_hp
 	%ProgressBar.value = max_hp
 	
 	spellbook = Spellbook.new()
-	#spellbook.owner = self
 	add_child(spellbook)
 	for spell in starting_spells:
 		spellbook.add_spell(spell)
@@ -32,13 +26,9 @@ func _ready():
 func hit(damage):
 	hp -= damage;
 	%ProgressBar.value = hp;
-	#print ("Hit, hp:", hp)
 	if (hp <= 0):
 		%ProgressBar.value = 0;
-		#print ("dead!")
 		alive = false
-		missile_timer.stop()
-#		queue_free()
 	
 func _shoot_missile():
 	var enemies = player_area.get_overlapping_bodies()

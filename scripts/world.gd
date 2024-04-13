@@ -42,7 +42,7 @@ func _ready():
 func _on_loop_sound():
 	music_player.stream = music[current_song]
 	current_song = (current_song +1) % music.size()
-	print("Starting next song:", music[current_song])
+	#print("Starting next song:", music[current_song])
 	music_player.volume_db = audio_volume;
 	music_player.play()
 	fadeout_timer.wait_time = song_length - fade_out_duration

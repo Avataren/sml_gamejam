@@ -1,12 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfdyy7cvrck45"]
+[gd_scene load_steps=15 format=3 uid="uid://bfdyy7cvrck45"]
 
 [ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="1_gk7jd"]
 [ext_resource type="Script" path="res://spells/missile.gd" id="1_q2ags"]
 [ext_resource type="PackedScene" uid="uid://sgmsftfwvi3c" path="res://spells/small_explosion.tscn" id="2_7kcn5"]
 [ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="3_5wyjl"]
+[ext_resource type="Texture2D" uid="uid://c2jrvugyqlco0" path="res://sprites/particles/shrapflash.tga" id="5_kujdr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3kk73"]
 radius = 4.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ghpdr"]
+blend_mode = 1
 
 [sub_resource type="Curve" id="Curve_hw7j5"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -36,10 +40,12 @@ particle_flag_disable_z = true
 emission_shape_offset = Vector3(0, -50, 0)
 emission_shape = 1
 emission_sphere_radius = 16.0
+angle_min = -181.3
+angle_max = 63.8
 spread = 8.617
 gravity = Vector3(0, 0, 0)
 scale_min = 0.1
-scale_max = 0.2
+scale_max = 0.3
 scale_curve = SubResource("CurveTexture_efgym")
 color_ramp = SubResource("GradientTexture1D_xlnqn")
 alpha_curve = SubResource("CurveTexture_8of6k")
@@ -73,10 +79,11 @@ texture = ExtResource("3_5wyjl")
 texture_scale = 0.5
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_ghpdr")
 scale = Vector2(0.25, 0.25)
 amount = 32
 process_material = SubResource("ParticleProcessMaterial_lmghk")
-texture = ExtResource("1_gk7jd")
+texture = ExtResource("5_kujdr")
 lifetime = 0.2
 trail_lifetime = 0.4
 
