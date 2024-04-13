@@ -15,7 +15,6 @@ func add_spell(spell_resource: SpellResource):
 	var timer = Timer.new()
 	add_child(timer)
 	timer.set_wait_time(spell_resource.cooldown)
-	print ("spell_resource:",spell_resource)
 	timer.set_one_shot(false)
 	timer.start()
 	var callable = Callable(self, "_on_spell_timer_timeout").bind(spell_resource.name)
@@ -32,6 +31,7 @@ func can_cast_spell(spell_name: String):
 
 func cast_spell(spell_name: String, position: Vector2, direction: Vector2):
 	#if can_cast_spell(spell_name):
+	print ("instantiating ", spells[spell_name].spell_scene)
 	var spell = spells[spell_name].spell_scene.instantiate()
 	spell.collision_layer = spell_collision_layer
 	spell.collision_mask = spell_collision_mask

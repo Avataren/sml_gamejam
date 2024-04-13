@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/base_enemy.gd" id="1_ucpxs"]
 [ext_resource type="Texture2D" uid="uid://csw6dmm60jj8y" path="res://sprites/enemies/Goblin/goblin.png" id="2_0i3oj"]
 [ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="2_7av8b"]
-[ext_resource type="Resource" uid="uid://kraj17pdvec6" path="res://resources/fireball.tres" id="2_ssos6"]
+[ext_resource type="Resource" uid="uid://wtmsl82pox06" path="res://resources/enemy_fireball.tres" id="2_svu5a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aa0am"]
 radius = 16.0
@@ -119,7 +119,7 @@ collision_layer = 2
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_ucpxs")
-starting_spells = Array[Resource("res://resources/SpellResource.gd")]([ExtResource("2_ssos6")])
+starting_spells = Array[Resource("res://resources/SpellResource.gd")]([ExtResource("2_svu5a")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -21)

@@ -2,14 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://bfolgd47g2od5" path="res://sprites/particles/firecloud.tga" id="1_5li6h"]
 [ext_resource type="Script" path="res://resources/SpellResource.gd" id="2_8pbld"]
-[ext_resource type="PackedScene" uid="uid://bfdyy7cvrck45" path="res://spells/missile.tscn" id="3_1sayx"]
+[ext_resource type="PackedScene" uid="uid://bfdyy7cvrck45" path="res://spells/fireball.tscn" id="3_28yup"]
 
 [resource]
 script = ExtResource("2_8pbld")
 name = "Fireball"
 hitpoints = 1
-cooldown = 2.0
-speed = 350.0
+cooldown = 1.0
+speed = 250.0
 damage = 1.0
 icon = ExtResource("1_5li6h")
-spell_scene = ExtResource("3_1sayx")
+spell_scene = ExtResource("3_28yup")

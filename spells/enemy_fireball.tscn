@@ -1,0 +1,79 @@
+[gd_scene load_steps=13 format=3 uid="uid://dqafhbgbcx3au"]
+
+[ext_resource type="Script" path="res://spells/fireball.gd" id="1_b7ro5"]
+[ext_resource type="PackedScene" uid="uid://sgmsftfwvi3c" path="res://spells/small_explosion.tscn" id="2_wnju8"]
+[ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="3_ww8b8"]
+[ext_resource type="Texture2D" uid="uid://buujy5n3oh5xj" path="res://sprites/particles/starbright.tga" id="4_ry7c0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3kk73"]
+radius = 4.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hjvow"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ghpdr"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_hw7j5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8of6k"]
+curve = SubResource("Curve_hw7j5")
+
+[sub_resource type="Curve" id="Curve_qwbgv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.987376, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_efgym"]
+curve = SubResource("Curve_qwbgv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lmghk"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -50, 0)
+emission_shape = 1
+emission_sphere_radius = 16.0
+angle_min = -181.3
+angle_max = 63.8
+spread = 8.617
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_efgym")
+color = Color(1.5, 1.5, 1.5, 1)
+alpha_curve = SubResource("CurveTexture_8of6k")
+turbulence_enabled = true
+turbulence_noise_strength = 0.83
+turbulence_noise_scale = 0.824
+
+[node name="Missile" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_b7ro5")
+explosion = ExtResource("2_wnju8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_3kk73")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(2, 1.2, 1.2, 1)
+material = SubResource("CanvasItemMaterial_hjvow")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_ww8b8")
+offset = Vector2(0, -50)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(1.6, 1.6, 1.6, 1)
+material = SubResource("CanvasItemMaterial_ghpdr")
+scale = Vector2(0.25, 0.25)
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_lmghk")
+texture = ExtResource("4_ry7c0")
+lifetime = 0.2
+trail_lifetime = 0.4
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
