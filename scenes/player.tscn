@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_dis8l"]
 [ext_resource type="Resource" uid="uid://kraj17pdvec6" path="res://spells/fireball.tres" id="2_p0fhe"]
-[ext_resource type="Texture2D" uid="uid://cx50ywka2hobc" path="res://sprites/player/wiz2_shadow.png" id="4_cpm22"]
 [ext_resource type="Resource" uid="uid://b8pqcjifcv07r" path="res://spells/damage_shield.tres" id="4_qdhtt"]
 [ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="4_r41mm"]
 [ext_resource type="Texture2D" uid="uid://dn7c871t4dcr0" path="res://sprites/wizard/wizard_full.png" id="5_e35pa"]
+[ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="5_jcspf"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="7_4rl60"]
 [ext_resource type="PackedScene" uid="uid://bcw7pt5uotbvl" path="res://scenes/animated_skeleton_body.tscn" id="8_wium2"]
 [ext_resource type="PackedScene" uid="uid://dertoe1q26aje" path="res://scenes/animated_goblin_body.tscn" id="9_llo2i"]
@@ -156,7 +156,7 @@ starting_spells = Array[Resource("res://resources/SpellResource.gd")]([ExtResour
 
 [node name="PlayerBoundsArea" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(15, -69)
+position = Vector2(13, -75)
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBoundsArea"]
@@ -174,23 +174,22 @@ texture_scale = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-12, 1)
 texture = ExtResource("5_e35pa")
-centered = false
-offset = Vector2(-34.14, -72)
+offset = Vector2(0, -40)
 hframes = 10
 vframes = 12
 frame = 55
 
+[node name="shadow" type="Sprite2D" parent="Sprite2D"]
+self_modulate = Color(0.122, 0.122, 0.122, 0.324)
+show_behind_parent = true
+position = Vector2(-1, -27)
+scale = Vector2(0.7, 0.5)
+texture = ExtResource("5_jcspf")
+
 [node name="StaffPosition" type="Marker2D" parent="Sprite2D"]
 unique_name_in_owner = true
-position = Vector2(24, -49)
-
-[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
-self_modulate = Color(0.0901961, 0.0901961, 0.0901961, 0.172549)
-show_behind_parent = true
-position = Vector2(1, -11)
-texture = ExtResource("4_cpm22")
+position = Vector2(10, -66)
 
 [node name="StaffParticles" type="GPUParticles2D" parent="Sprite2D"]
 visible = false
@@ -203,7 +202,7 @@ interp_to_end = 0.01
 local_coords = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -18)
+position = Vector2(-1, -33)
 shape = SubResource("CapsuleShape2D_lorja")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -250,7 +249,7 @@ progress = 91.7206
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
-position = Vector2(1, -28)
+position = Vector2(0, -41)
 shape = SubResource("CapsuleShape2D_hmity")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
