@@ -31,13 +31,14 @@ var current_song:=0
 @export var darkness:Color = Color.WHITE
 func _ready():
 	Global.game_over = false
+	Global.tilemap = $WorldTileMap
 	$CanvasModulate.color = darkness;
 	%WorldEnvironment.environment.tonemap_exposure=0.0;
 	get_tree().create_tween().tween_property(%WorldEnvironment.environment,"tonemap_exposure",0.5, 2.0).set_ease(Tween.EASE_OUT)
 	music.shuffle();
 	#music_player.connect("finished", _on_loop_sound)
 	get_tree().paused = false
-	Global.tilemap = %TileMap
+	
 	_on_loop_sound()
 	
 func _on_loop_sound():

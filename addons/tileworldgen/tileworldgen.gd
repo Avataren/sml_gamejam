@@ -3,6 +3,7 @@ extends EditorPlugin
 # A class member to hold the dock during the plugin life cycle.
 var dock
 var world_gen_script
+
 func _enter_tree():
 	# Initialization of the plugin goes here.
 	# Load the dock scene and instantiate it.

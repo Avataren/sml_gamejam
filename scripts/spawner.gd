@@ -74,7 +74,9 @@ static func get_tile_data_at(position: Vector2) -> TileData:
 	
 static func get_custom_data_at(position: Vector2, custom_data_name: String) -> Variant:
 	var data = get_tile_data_at(position)
-	return data.get_custom_data(custom_data_name)
+	if data:
+		return data.get_custom_data(custom_data_name)
+	return true
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cv6jekomhvbxi"]
+[gd_scene load_steps=6 format=3 uid="uid://cv6jekomhvbxi"]
 
 [ext_resource type="Theme" uid="uid://1opsxcmfql7d" path="res://ui/main_theme.tres" id="1_w56l5"]
 [ext_resource type="FontFile" uid="uid://c7mhxxglhgvjl" path="res://ui/Enchanted Land.otf" id="2_gi32a"]
@@ -7,6 +7,10 @@
 [sub_resource type="Theme" id="Theme_gl51e"]
 default_font = ExtResource("2_gi32a")
 default_font_size = 96
+
+[sub_resource type="Theme" id="Theme_d8fbw"]
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("2_gi32a")
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -41,7 +45,9 @@ text = "YOU  DIED"
 
 [node name="MainMenuButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-text = "Oh no
+size_flags_horizontal = 4
+theme = SubResource("Theme_d8fbw")
+text = "Return to main menu
 "
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
