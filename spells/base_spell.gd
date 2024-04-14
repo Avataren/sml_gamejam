@@ -17,14 +17,24 @@ func _ready():
 func _process(delta):
 	position += direction * speed * delta
 
-func _on_body_entered(body):
-	if body.has_method("hit"):
-		body.hit(spell_resource.damage)
+func _on_area_entered(area: Area2D) -> void:
+	var body = area.get_parent()
+	if body is CharacterBody2D:
+		if body.has_method("hit"):
+			body.hit(spell_resource.damage)
+			impact_effect()
+			hitpoints -= 1
+			if (hitpoints <= 0):
+				death_effect()
+				_die()		
+	else:
 		impact_effect()
 		hitpoints -= 1
-		if (hitpoints <= 0):
-			death_effect()
-			_die()
+		
+		
+	
+func _on_body_entered(body):
+	pass
 
 func death_effect():
 	pass

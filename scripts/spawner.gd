@@ -1,8 +1,8 @@
 extends Path2D
 @export var spawn_list:Array[PackedScene]
 @export var boss_spawn_list:Array[PackedScene]
-@export var spawn_interval:float = 2.0
-@export var boss_spawn_interval:float = 30.0
+@export var spawn_interval:float = 0.5
+@export var boss_spawn_interval:float = 50.0
 @export var path_speed:= 0.1
 var curr_path_pos := 0.0
 var timer:Timer = Timer.new()
@@ -52,9 +52,16 @@ func _get_valid_spawn_position():
 		var ppos = path_follow.global_position
 		var tilemap = Global.tilemap
 		var local_pos = tilemap.to_local(ppos)
-		var no_spawn = get_custom_data_at(local_pos,"no_spawn")
+		var offsets:Array[Vector2] = [Vector2(-1,1), Vector2(-1,0), Vector2(-1,-1),Vector2(0,1), Vector2(0,0), Vector2(0,-1), Vector2(1,1), Vector2(1,0), Vector2(1,-1)]
+		var no_spawn = false
+		for offset in offsets:
+			var no_spawn_sample = get_custom_data_at(local_pos+offset,"no_spawn")
+			no_spawn = no_spawn_sample || no_spawn
+			if no_spawn:
+				break
+				
 		if (!no_spawn):
-			return true
+				return true		
 		path_follow.set_progress_ratio( path_follow.get_progress_ratio() + 0.1)
 	
 	

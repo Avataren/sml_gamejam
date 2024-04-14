@@ -1,12 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://ocnxjj72lmc3"]
+[gd_scene load_steps=14 format=3 uid="uid://ocnxjj72lmc3"]
 
 [ext_resource type="Script" path="res://scenes/base_enemy.gd" id="1_e1ahl"]
 [ext_resource type="Texture2D" uid="uid://1m3a6qcjm3n2" path="res://sprites/enemies/Skeleton/skelly-0.png" id="2_2kxha"]
 [ext_resource type="Resource" uid="uid://wtmsl82pox06" path="res://resources/enemy_fireball.tres" id="2_paw3t"]
 [ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="3_6i1i3"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4s1k"]
+height = 50.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_aa0am"]
-radius = 8.48528
+radius = 5.52268
 
 [sub_resource type="Animation" id="Animation_1jpjs"]
 resource_name = "attack"
@@ -129,8 +132,16 @@ speed = 60.0
 hp = 25
 starting_spells = Array[Resource("res://resources/SpellResource.gd")]([ExtResource("2_paw3t")])
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5.5, -33)
+shape = SubResource("CapsuleShape2D_c4s1k")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, -15.5)
+position = Vector2(4, -13.5)
 shape = SubResource("CircleShape2D_aa0am")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

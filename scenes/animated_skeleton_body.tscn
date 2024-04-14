@@ -1,11 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcw7pt5uotbvl"]
+[gd_scene load_steps=13 format=3 uid="uid://bcw7pt5uotbvl"]
 
 [ext_resource type="Texture2D" uid="uid://1m3a6qcjm3n2" path="res://sprites/enemies/Skeleton/skelly-0.png" id="1_obt5c"]
 [ext_resource type="Script" path="res://scenes/base_enemy.gd" id="1_rxt5s"]
 [ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="3_hrrpt"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7f5wg"]
+height = 54.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_aa0am"]
-radius = 20.025
+radius = 12.0416
 
 [sub_resource type="Animation" id="Animation_1jpjs"]
 resource_name = "attack"
@@ -124,8 +127,16 @@ collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_rxt5s")
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6, -32)
+shape = SubResource("CapsuleShape2D_7f5wg")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, -22)
+position = Vector2(4, -15)
 shape = SubResource("CircleShape2D_aa0am")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
