@@ -10,7 +10,7 @@ func _ready():
 		$AudioStreamPlayer2D.play()
 
 
-func impact_effect(pos):
+func impact_effect(_pos):
 	if (explosion):
 		explosion_instance = explosion.instantiate();
 		explosion_instance.global_position = global_position + Vector2(0,50)

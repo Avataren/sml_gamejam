@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6gcstwijpfrl"]
+[gd_scene load_steps=17 format=3 uid="uid://c6gcstwijpfrl"]
 
 [ext_resource type="Script" path="res://spells/damage_shield.gd" id="1_dvn16"]
 [ext_resource type="PackedScene" uid="uid://sgmsftfwvi3c" path="res://spells/small_explosion.tscn" id="2_5qvrs"]
 [ext_resource type="AudioStream" uid="uid://dnuvfpg4up43j" path="res://sfx/Bow.wav" id="2_vk8ss"]
-[ext_resource type="Resource" uid="uid://b8pqcjifcv07r" path="res://spells/damage_shield.tres" id="3_g5sbw"]
 [ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="5_w67c3"]
 [ext_resource type="Texture2D" uid="uid://bf0thakpsglw5" path="res://sprites/particles/fireball.tga" id="6_ollhe"]
 [ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="7_w00x6"]
@@ -93,10 +92,9 @@ collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_dvn16")
 explosion = ExtResource("2_5qvrs")
-spell_resource = ExtResource("3_g5sbw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
+position = Vector2(-4, -76)
 shape = SubResource("CircleShape2D_n5h88")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
@@ -122,7 +120,6 @@ libraries = {
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
 material = SubResource("CanvasItemMaterial_u6mhr")
-position = Vector2(0, -2)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_w67c3")
 

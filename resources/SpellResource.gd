@@ -11,4 +11,3 @@ class_name SpellResource
 @export var spell_scene: PackedScene
 @export var life_time: float = 5.0
 @export var radius: float = 100.0
-

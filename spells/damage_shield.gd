@@ -10,7 +10,7 @@ func _ready():
 	if $AudioStreamPlayer2D:
 		$AudioStreamPlayer2D.play()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	global_position = Global.player.global_position
 	#if rotating:
 	var t = Time.get_unix_time_from_system() * 2.5

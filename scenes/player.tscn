@@ -90,7 +90,7 @@ height = 40.0
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_dis8l")
-starting_spells = Array[Resource("res://resources/SpellResource.gd")]([ExtResource("4_qdhtt"), ExtResource("2_p0fhe")])
+starting_spells = Array[Resource("res://resources/SpellResource.gd")]([ExtResource("2_p0fhe"), ExtResource("4_qdhtt")])
 
 [node name="PlayerBoundsArea" type="Area2D" parent="."]
 unique_name_in_owner = true

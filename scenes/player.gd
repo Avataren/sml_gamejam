@@ -6,7 +6,6 @@ const SPEED = 100.0
 @export var starting_spells:Array[SpellResource]
 var aim_point:Vector2
 
-var missile:PackedScene = load("res://spells/missile.tscn")
 var max_hp = 10
 var hp = max_hp
 var alive = true
@@ -36,29 +35,8 @@ func hit(damage):
 		if !$AudioStreamPlayer2D.playing && !Global.game_over:
 			$AudioStreamPlayer2D.play()
 		
-func _shoot_missile():
-	var enemies = player_area.get_overlapping_bodies()
-	var closest_enemy;
-	var closest = INF
-	var staff_pos = %StaffPosition.global_position
-	for enemy in enemies:
-		var enemy_dist = staff_pos.distance_to(enemy.global_position)
-		if (enemy_dist < closest):
-			closest = enemy_dist
-			closest_enemy = enemy
 	
-	
-	var m:Area2D = missile.instantiate()
-	m.position = %StaffPosition.global_position
-	
-	if (closest_enemy):
-		m.direction = (closest_enemy.global_position - staff_pos).normalized()
-	else:
-		m.direction = Vector2(randf_range(-1., 1,), randf_range(-1., 1.)).normalized()
-		
-	get_parent().add_child(m)
-	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if !alive:
 		return;
 	if first:
@@ -76,17 +54,17 @@ func _physics_process(delta):
 	elif direction.x < 0:
 		sprite.scale.x = 1
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _on_area_2d_area_exited(area):
 	if (area.is_in_group("spell")):
 		area.queue_free()
 		
-func can_cast_spell(spell_name):
+func can_cast_spell(_spell_name):
 	return true
 	
-func get_spell_casting_position(spell_name):
+func get_spell_casting_position(_spell_name):
 	return %StaffPosition.global_position
 	
 func get_spell_casting_direction(spell_name):

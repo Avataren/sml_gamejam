@@ -44,7 +44,7 @@ func hit(damage):
 		$AnimationPlayer.play("hit")
 	hp -= damage
 	if (hp <= 0):
-		$CollisionShape2D.disabled = true
+		$CollisionShape2D.set_deferred("disabled", true)
 		alive = false
 		$MobArea.collision_mask=0
 		$MobArea.collision_layer=0
@@ -88,13 +88,12 @@ func _physics_process(delta):
 			else:
 				_play_animation_rnd("walk")
 				
-func can_cast_spell(spell_name):
+func can_cast_spell(_spell_name):
 	var dist = aim_point.distance_to(Global.player.global_position)
 	return  dist < spell_distance
 				
-func get_spell_casting_position(spell_name):
+func get_spell_casting_position(_spell_name):
 	return aim_point
 	
-func get_spell_casting_direction(spell_name):
-
-	return (Global.player.aim_point - get_spell_casting_position(spell_name)).normalized()
+func get_spell_casting_direction(spell):
+	return (Global.player.aim_point - get_spell_casting_position(spell)).normalized()

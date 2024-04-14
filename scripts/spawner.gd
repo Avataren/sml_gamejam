@@ -70,12 +70,12 @@ func _get_valid_spawn_position():
 		path_follow.set_progress_ratio( path_follow.get_progress_ratio() + 0.1)
 	return false
 	
-static func get_tile_data_at(position: Vector2) -> TileData:
-	var local_position: Vector2 =  Global.tilemap.local_to_map(position)
+static func get_tile_data_at(pos: Vector2) -> TileData:
+	var local_position: Vector2 =  Global.tilemap.local_to_map(pos)
 	return  Global.tilemap.get_cell_tile_data(0, local_position)
 	
-static func get_custom_data_at(position: Vector2, custom_data_name: String) -> Variant:
-	var data = get_tile_data_at(position)
+static func get_custom_data_at(pos: Vector2, custom_data_name: String) -> Variant:
+	var data = get_tile_data_at(pos)
 	if data:
 		return data.get_custom_data(custom_data_name)
 	return true

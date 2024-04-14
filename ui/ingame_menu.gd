@@ -2,7 +2,6 @@ extends Control
 
 @export var music_player:AudioStreamPlayer
 signal go_to_menu
-signal return_to_game
 
 	
 func _on_exit_game_button_pressed():

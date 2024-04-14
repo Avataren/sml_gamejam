@@ -2,8 +2,6 @@
 extends Node
 class_name Spellbook
 
-signal spell_cast(spell)
-
 var spells = {}  # Dictionary to hold SpellResources by name
 var timers = {}  # Dictionary to hold timers for each spell
 
@@ -33,7 +31,7 @@ func can_cast_spell(spell_name: String):
 	return spells.has(spell_name) and not timers[spell_name].is_stopped()
 
 func cast_spell(spell_name: String, position: Vector2, direction: Vector2):
-	print ("Casting ", spell_name)
+	#print ("Casting ", spell_name)
 	var spell = spells[spell_name].spell_scene.instantiate()
 	spell.collision_layer = spell_collision_layer
 	spell.collision_mask = spell_collision_mask
