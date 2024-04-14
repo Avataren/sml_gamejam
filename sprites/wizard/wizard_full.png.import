@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dj6n3or7cxh81"
-path="res://.godot/imported/Take Hit.png-62f7ec3eabec7fa24e84638f074438ec.ctex"
+uid="uid://dn7c871t4dcr0"
+path="res://.godot/imported/wizard_full.png-a61302404dfcac071b19a2bcad1da985.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemies/Flying eye/Take Hit.png"
-dest_files=["res://.godot/imported/Take Hit.png-62f7ec3eabec7fa24e84638f074438ec.ctex"]
+source_file="res://sprites/wizard/wizard_full.png"
+dest_files=["res://.godot/imported/wizard_full.png-a61302404dfcac071b19a2bcad1da985.ctex"]
 
 [params]
 

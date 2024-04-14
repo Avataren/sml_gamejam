@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dj6n3or7cxh81"
-path="res://.godot/imported/Take Hit.png-62f7ec3eabec7fa24e84638f074438ec.ctex"
+uid="uid://dikuuipq4ofph"
+path="res://.godot/imported/flying_eye_full.png-62ec563e1492a6ea4fb1fc6a69bca215.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemies/Flying eye/Take Hit.png"
-dest_files=["res://.godot/imported/Take Hit.png-62f7ec3eabec7fa24e84638f074438ec.ctex"]
+source_file="res://sprites/enemies/Flying eye/flying_eye_full.png"
+dest_files=["res://.godot/imported/flying_eye_full.png-62ec563e1492a6ea4fb1fc6a69bca215.ctex"]
 
 [params]
 

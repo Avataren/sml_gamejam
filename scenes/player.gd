@@ -17,7 +17,7 @@ func _ready():
 
 	%ProgressBar.max_value = max_hp
 	%ProgressBar.value = max_hp
-	
+	$AnimationPlayer.play("idle")
 	spellbook = Spellbook.new()
 	spellbook.spell_collision_layer = 2
 	spellbook.spell_collision_mask = 0b00000000_00000000_00000000_00001000
@@ -32,6 +32,7 @@ func hit(damage):
 	if (hp <= 0):
 		%ProgressBar.value = 0;
 		alive = false
+		$AnimationPlayer.play("death")
 		if !$AudioStreamPlayer2D.playing && !Global.game_over:
 			$AudioStreamPlayer2D.play()
 		
@@ -46,13 +47,16 @@ func _physics_process(_delta):
 	aim_point = $aim_point.global_position
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * SPEED
-
+	if (direction.length() > 0):
+		$AnimationPlayer.play("walk")
+	else:
+		$AnimationPlayer.play("idle")
 	move_and_slide()
 	# Check for horizontal movement
 	if direction.x > 0:
-		sprite.scale.x = -1  # Assuming your sprite faces left by default
-	elif direction.x < 0:
 		sprite.scale.x = 1
+	elif direction.x < 0:
+		sprite.scale.x = -1
 
 func _process(_delta):
 	pass

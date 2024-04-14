@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dj6n3or7cxh81"
-path="res://.godot/imported/Take Hit.png-62f7ec3eabec7fa24e84638f074438ec.ctex"
+uid="uid://x2h4802twyiv"
+path="res://.godot/imported/mushroom_full.png-9d9b2d5bfa9309656f1a063afdc9133a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemies/Flying eye/Take Hit.png"
-dest_files=["res://.godot/imported/Take Hit.png-62f7ec3eabec7fa24e84638f074438ec.ctex"]
+source_file="res://sprites/enemies/Mushroom/mushroom_full.png"
+dest_files=["res://.godot/imported/mushroom_full.png-9d9b2d5bfa9309656f1a063afdc9133a.ctex"]
 
 [params]
 
