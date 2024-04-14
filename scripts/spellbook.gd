@@ -20,6 +20,10 @@ func add_spell(spell_resource: SpellResource):
 	var callable = Callable(self, "_on_spell_timer_timeout").bind(spell_resource.name)
 	timer.timeout.connect(callable)
 	timers[spell_resource.name] = timer
+	
+func cast_initial_spells():
+	for spell in spells:
+		_on_spell_timer_timeout(spell)
 
 func _exit_tree():
 	for timer in timers:
@@ -29,7 +33,7 @@ func can_cast_spell(spell_name: String):
 	return spells.has(spell_name) and not timers[spell_name].is_stopped()
 
 func cast_spell(spell_name: String, position: Vector2, direction: Vector2):
-	#if can_cast_spell(spell_name):
+	print ("Casting ", spell_name)
 	var spell = spells[spell_name].spell_scene.instantiate()
 	spell.collision_layer = spell_collision_layer
 	spell.collision_mask = spell_collision_mask
@@ -39,8 +43,13 @@ func cast_spell(spell_name: String, position: Vector2, direction: Vector2):
 	get_parent().get_parent().add_child(spell)
 
 func _on_spell_timer_timeout(spell_name: String):
+	if Global.game_over:
+		return
+		
 	var parent = get_parent()
 	var direction = parent.get_spell_casting_direction(spell_name)
 	var position = parent.get_spell_casting_position(spell_name) 
 	if (parent.can_cast_spell(spell_name)):
 		cast_spell(spell_name, position, direction)
+	else:
+		print ("not allowed to cast yet!")

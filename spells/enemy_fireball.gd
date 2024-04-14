@@ -6,8 +6,9 @@ var explosion_instance
 
 func _ready():
 	super()
-	if %AudioStreamPlayer2D:
-		%AudioStreamPlayer2D.play()
+	if $AudioStreamPlayer2D:
+		$AudioStreamPlayer2D.play()
+
 
 func impact_effect():
 	if (explosion):

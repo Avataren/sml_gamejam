@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://dqafhbgbcx3au"]
 
-[ext_resource type="Script" path="res://spells/fireball.gd" id="1_b7ro5"]
-[ext_resource type="PackedScene" uid="uid://sgmsftfwvi3c" path="res://spells/small_explosion.tscn" id="2_wnju8"]
+[ext_resource type="Script" path="res://spells/enemy_fireball.gd" id="1_gge0j"]
 [ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="3_ww8b8"]
+[ext_resource type="AudioStream" uid="uid://cvt7ih35trl8k" path="res://sfx/swish_3.wav" id="4_bodi8"]
 [ext_resource type="Texture2D" uid="uid://buujy5n3oh5xj" path="res://sprites/particles/starbright.tga" id="4_ry7c0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3kk73"]
@@ -52,8 +52,7 @@ turbulence_noise_scale = 0.824
 [node name="Missile" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_b7ro5")
-explosion = ExtResource("2_wnju8")
+script = ExtResource("1_gge0j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -12)
@@ -76,5 +75,7 @@ texture = ExtResource("4_ry7c0")
 lifetime = 0.2
 trail_lifetime = 0.4
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_bodi8")
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

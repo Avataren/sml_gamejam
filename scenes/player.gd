@@ -10,6 +10,7 @@ var missile:PackedScene = load("res://spells/missile.tscn")
 var max_hp = 10
 var hp = max_hp
 var alive = true
+var first = true
 
 @onready var player_area:Area2D = %PlayerBoundsArea
 func _ready():
@@ -32,7 +33,9 @@ func hit(damage):
 	if (hp <= 0):
 		%ProgressBar.value = 0;
 		alive = false
-	
+		if !$AudioStreamPlayer2D.playing && !Global.game_over:
+			$AudioStreamPlayer2D.play()
+		
 func _shoot_missile():
 	var enemies = player_area.get_overlapping_bodies()
 	var closest_enemy;
@@ -56,8 +59,12 @@ func _shoot_missile():
 	get_parent().add_child(m)
 	
 func _physics_process(delta):
-	if (!alive):
+	if !alive:
 		return;
+	if first:
+		spellbook.cast_initial_spells()
+		first = false
+		
 	aim_point = $aim_point.global_position
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * SPEED
