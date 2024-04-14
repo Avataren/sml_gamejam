@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dertoe1q26aje"]
+[gd_scene load_steps=13 format=3 uid="uid://dertoe1q26aje"]
 
 [ext_resource type="Script" path="res://scenes/base_enemy.gd" id="1_ucpxs"]
 [ext_resource type="Texture2D" uid="uid://csw6dmm60jj8y" path="res://sprites/enemies/Goblin/goblin.png" id="2_0i3oj"]
 [ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="2_7av8b"]
+[ext_resource type="AudioStream" uid="uid://didxbt6jo4sws" path="res://sfx/swish_4.wav" id="2_y2ics"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_88fll"]
 radius = 12.0
@@ -39,6 +40,21 @@ tracks/1/keys = {
 "method": &"_melee_attack"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_y2ics")
+}],
+"times": PackedFloat32Array(0.6)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_3agln"]
 resource_name = "death"
@@ -157,3 +173,5 @@ offset = Vector2(6.695, -82.155)
 
 [node name="aim_point" type="Marker2D" parent="."]
 position = Vector2(0, -24)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://ocnxjj72lmc3"]
+[gd_scene load_steps=16 format=3 uid="uid://ocnxjj72lmc3"]
 
 [ext_resource type="Script" path="res://scenes/base_enemy.gd" id="1_e1ahl"]
 [ext_resource type="Texture2D" uid="uid://1m3a6qcjm3n2" path="res://sprites/enemies/Skeleton/skelly-0.png" id="2_2kxha"]
 [ext_resource type="Resource" uid="uid://wtmsl82pox06" path="res://resources/enemy_fireball.tres" id="2_paw3t"]
 [ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="3_6i1i3"]
+[ext_resource type="AudioStream" uid="uid://bsxbkc12ffgrj" path="res://sfx/swish_2.wav" id="3_60xha"]
 [ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="5_yqk5u"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4s1k"]
@@ -42,6 +43,21 @@ tracks/1/keys = {
 "method": &"_melee_attack"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_60xha")
+}],
+"times": PackedFloat32Array(0.6)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_rla5w"]
 resource_name = "block"
@@ -146,6 +162,8 @@ script = ExtResource("1_e1ahl")
 speed = 60.0
 hp = 25
 starting_spells = Array[Resource("res://resources/SpellResource.gd")]([ExtResource("2_paw3t")])
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [node name="MobArea" type="Area2D" parent="."]
 collision_layer = 8
