@@ -18,7 +18,7 @@ func _ready():
 	Global.enemy_count+=1
 	spellbook = Spellbook.new()
 	spellbook.spell_collision_layer = 1
-	spellbook.spell_collision_mask = 1
+	spellbook.spell_collision_mask = 0b00000000_00000000_00000000_00000001
 	add_child(spellbook)
 	for spell in starting_spells:
 		spellbook.add_spell(spell)	
@@ -46,6 +46,8 @@ func hit(damage):
 	if (hp <= 0):
 		$CollisionShape2D.disabled = true
 		alive = false
+		$MobArea.collision_mask=0
+		$MobArea.collision_layer=0
 		$AnimationPlayer.stop()
 		$AnimationPlayer.play("death")
 		await $AnimationPlayer.animation_finished

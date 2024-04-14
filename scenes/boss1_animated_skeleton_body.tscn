@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://1m3a6qcjm3n2" path="res://sprites/enemies/Skeleton/skelly-0.png" id="2_2kxha"]
 [ext_resource type="Resource" uid="uid://wtmsl82pox06" path="res://resources/enemy_fireball.tres" id="2_paw3t"]
 [ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="3_6i1i3"]
+[ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="5_yqk5u"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4s1k"]
 height = 50.0
@@ -135,10 +136,6 @@ _data = {
 "walk": SubResource("Animation_i81rr")
 }
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_51f40"]
-blend_mode = 1
-light_mode = 1
-
 [node name="enemy_skeleton" type="CharacterBody2D"]
 y_sort_enabled = true
 scale = Vector2(2, 2)
@@ -150,11 +147,11 @@ speed = 60.0
 hp = 25
 starting_spells = Array[Resource("res://resources/SpellResource.gd")]([ExtResource("2_paw3t")])
 
-[node name="BossArea" type="Area2D" parent="."]
-collision_layer = 2
+[node name="MobArea" type="Area2D" parent="."]
+collision_layer = 8
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BossArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MobArea"]
 position = Vector2(5.5, -33)
 shape = SubResource("CapsuleShape2D_c4s1k")
 
@@ -170,7 +167,6 @@ libraries = {
 [node name="mob_sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 self_modulate = Color(2, 1.2, 1.2, 1)
-material = SubResource("CanvasItemMaterial_51f40")
 texture = ExtResource("2_2kxha")
 offset = Vector2(0, -36.275)
 hframes = 12
@@ -186,3 +182,7 @@ offset = Vector2(0, -82.155)
 
 [node name="aim_point" type="Marker2D" parent="."]
 position = Vector2(4, -22)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("5_yqk5u")
+offset = Vector2(0, -67.59)

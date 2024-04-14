@@ -181,8 +181,7 @@ curve = SubResource("Curve2D_ughlk")
 script = ExtResource("7_4rl60")
 spawn_list = Array[PackedScene]([ExtResource("8_wium2"), ExtResource("9_llo2i")])
 boss_spawn_list = Array[PackedScene]([ExtResource("10_t4f7r")])
-spawn_interval = 100.0
-boss_spawn_interval = 100.0
+boss_spawn_interval = 30.0
 
 [node name="PathFollow2D" type="PathFollow2D" parent="SpawnerPath"]
 unique_name_in_owner = true
@@ -191,6 +190,7 @@ rotation = -0.118108
 progress = 91.7206
 
 [node name="PlayerArea" type="Area2D" parent="."]
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
 position = Vector2(1, -28)

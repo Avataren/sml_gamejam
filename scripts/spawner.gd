@@ -10,6 +10,7 @@ var boss_timer:Timer = Timer.new()
 @onready var path_follow = %PathFollow2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
 	add_child(timer)
 	timer.set_wait_time(spawn_interval)
 	timer.one_shot = false
@@ -29,14 +30,15 @@ func spawn():
 	if !_get_valid_spawn_position():
 		print ("No valid spawn position found")
 		return
-	print ("spawning creature")
+		
 	var new_spawn = spawn_list.pick_random().instantiate()
 	new_spawn.global_position = path_follow.global_position
 	get_parent().get_parent().add_child(new_spawn)
 	
 func spawn_boss():
-	print ("spawning boss!")
-	if spawn_list.size() == 0 || !Global.tilemap || Global.enemy_count >= Global.max_enemies:
+	
+	# dont' count bosses towards global enemy count
+	if boss_spawn_list.size() == 0:
 		return
 
 	if !_get_valid_spawn_position():

@@ -20,7 +20,7 @@ func _ready():
 	
 	spellbook = Spellbook.new()
 	spellbook.spell_collision_layer = 2
-	spellbook.spell_collision_mask = 2
+	spellbook.spell_collision_mask = 0b00000000_00000000_00000000_00001000
 	add_child(spellbook)
 	for spell in starting_spells:
 		spellbook.add_spell(spell)

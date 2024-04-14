@@ -141,11 +141,11 @@ collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_rxt5s")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2
+[node name="MobArea" type="Area2D" parent="."]
+collision_layer = 8
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MobArea"]
 position = Vector2(6, -32)
 shape = SubResource("CapsuleShape2D_7f5wg")
 

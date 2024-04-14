@@ -20,8 +20,12 @@ func _process(delta):
 func _on_area_entered(area: Area2D) -> void:
 	if (area.name == "PlayerBoundsArea"):
 		return
-		
+	#print ("colliding with : ", area.name)
+	#print ("area layer:", area.collision_layer)
+	#print ("this mask:", collision_mask)
+	
 	var body = area.get_parent()
+	#print ("parent is ", body.name)
 	if body is CharacterBody2D:
 		if body.has_method("hit"):
 			print ("hitting ", body.name)
