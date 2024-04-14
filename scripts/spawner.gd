@@ -8,6 +8,8 @@ var curr_path_pos := 0.0
 var timer:Timer = Timer.new()
 var boss_timer:Timer = Timer.new()
 @onready var path_follow = %PathFollow2D
+var noise:FastNoiseLite = FastNoiseLite.new()
+var noise_progress := 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -80,6 +82,9 @@ static func get_custom_data_at(position: Vector2, custom_data_name: String) -> V
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	path_follow.set_progress_ratio(path_follow.get_progress_ratio() + path_speed * delta)
+	var noise_path = 1.0 + noise.get_noise_1d(noise_progress)
+	noise_progress+= path_speed * delta
+	
+	path_follow.set_progress_ratio(noise_path)
 	if path_follow.get_progress_ratio() > 1.0:
 		path_follow.set_progress_ratio( path_follow.get_progress_ratio() - 1.0)

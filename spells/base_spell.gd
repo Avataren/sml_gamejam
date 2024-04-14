@@ -27,7 +27,6 @@ func _process(delta):
 	position += direction * speed * delta
 
 func _on_area_entered(area: Area2D) -> void:
-	print ("colliding with : ", area.name)
 	if (area.name == "PlayerBoundsArea"):
 		return
 	
@@ -38,15 +37,14 @@ func _on_area_entered(area: Area2D) -> void:
 	#print ("parent is ", body.name)
 	if body is CharacterBody2D:
 		if body.has_method("hit"):
-			print ("hitting ", body.name)
 			body.hit(spell_resource.damage)
-			impact_effect()
+			impact_effect(body.global_position)
 			hitpoints -= 1
 			if (hitpoints <= 0):
 				death_effect()
 				_die()		
 	else:
-		impact_effect()
+		impact_effect(global_position)
 		hitpoints -= 1
 		
 		
@@ -57,7 +55,7 @@ func _on_body_entered(body):
 func death_effect():
 	pass
 
-func impact_effect():
+func impact_effect(pos):
 	pass
 	
 func _die():

@@ -13,7 +13,7 @@ func _ready():
 func _physics_process(delta):
 	global_position = Global.player.global_position
 	#if rotating:
-	var t = Time.get_unix_time_from_system() * 2.0
+	var t = Time.get_unix_time_from_system() * 2.5
 	$Sprite2D.position = Vector2(cos(t),sin(t))*radius
 	$CollisionShape2D.position = $Sprite2D.position
 	t+=PI*0.5
@@ -27,11 +27,10 @@ func _physics_process(delta):
 	$CollisionShape2D4.position = $Sprite2D4.position
 	
 	
-	
-func impact_effect():
+func impact_effect(pos):
 	if (explosion):
 		explosion_instance = explosion.instantiate();
-		explosion_instance.global_position = global_position + Vector2(0,50)
+		explosion_instance.global_position = pos 
 		get_parent().add_child(explosion_instance)
 		
 func start_rotating():

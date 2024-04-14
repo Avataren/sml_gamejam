@@ -1,15 +1,17 @@
 [gd_resource type="Resource" script_class="SpellResource" load_steps=4 format=3 uid="uid://wtmsl82pox06"]
 
-[ext_resource type="Texture2D" uid="uid://buujy5n3oh5xj" path="res://sprites/particles/starbright.tga" id="1_u4jf0"]
-[ext_resource type="Script" path="res://resources/SpellResource.gd" id="2_offrq"]
-[ext_resource type="PackedScene" uid="uid://dqafhbgbcx3au" path="res://spells/enemy_fireball.tscn" id="3_waf4t"]
+[ext_resource type="Texture2D" uid="uid://buujy5n3oh5xj" path="res://sprites/particles/starbright.tga" id="1_5gei1"]
+[ext_resource type="Script" path="res://resources/SpellResource.gd" id="2_bp6qo"]
+[ext_resource type="PackedScene" uid="uid://dqafhbgbcx3au" path="res://spells/enemy_fireball.tscn" id="3_m72wt"]
 
 [resource]
-script = ExtResource("2_offrq")
+script = ExtResource("2_bp6qo")
 name = "LightningBall"
 hitpoints = 1
-cooldown = 0.5
+cooldown = 1.0
 speed = 300.0
 damage = 1.0
-icon = ExtResource("1_u4jf0")
-spell_scene = ExtResource("3_waf4t")
+icon = ExtResource("1_5gei1")
+spell_scene = ExtResource("3_m72wt")
+life_time = 5.0
+radius = 100.0

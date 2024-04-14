@@ -14,4 +14,4 @@ damage = 1.0
 icon = ExtResource("1_or8yt")
 spell_scene = ExtResource("3_u0esn")
 life_time = 8.0
-radius = 200.0
+radius = 150.0

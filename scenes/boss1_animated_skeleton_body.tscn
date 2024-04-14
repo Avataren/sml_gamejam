@@ -160,7 +160,7 @@ collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_e1ahl")
 speed = 60.0
-hp = 25
+hp = 20
 starting_spells = Array[Resource("res://resources/SpellResource.gd")]([ExtResource("2_paw3t")])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

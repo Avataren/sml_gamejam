@@ -54,6 +54,8 @@ func hit(damage):
 		queue_free()
 	
 func _melee_attack():
+	if Global.game_over:
+		return;
 	Global.player.hit(1)
 	
 func _physics_process(delta):
@@ -78,7 +80,7 @@ func _physics_process(delta):
 		elif direction.x < 0:
 			%mob_sprite.scale.x = -1
 		
-		if (distance < attack_distance):
+		if (distance < attack_distance && !Global.game_over):
 			$AnimationPlayer.play("attack")
 		elif ($AnimationPlayer.current_animation != "hit" && $AnimationPlayer.current_animation != "death"):
 			if (actual_velocity < speed*0.7):

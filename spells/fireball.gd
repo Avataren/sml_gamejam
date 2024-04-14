@@ -9,7 +9,7 @@ func _ready():
 	if %AudioStreamPlayer2D:
 		%AudioStreamPlayer2D.play()
 
-func impact_effect():
+func impact_effect(pos):
 	if (explosion):
 		explosion_instance = explosion.instantiate();
 		explosion_instance.global_position = global_position + Vector2(0,50)
