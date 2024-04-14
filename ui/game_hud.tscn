@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch2rbgkm0xgrh"]
+
+[ext_resource type="Theme" uid="uid://1opsxcmfql7d" path="res://ui/main_theme.tres" id="1_bhkuj"]
+[ext_resource type="Texture2D" uid="uid://d01hl06lyv57" path="res://icons/106.png" id="2_pifnq"]
+
+[node name="Game_HUD" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bhkuj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -33.0
+offset_right = 33.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Control/HBoxContainer"]
+layout_mode = 2
+text = "Level:  1"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_bottom = 48.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_pifnq")
