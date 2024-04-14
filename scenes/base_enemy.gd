@@ -7,6 +7,7 @@ var actual_velocity:= 0.0
 var alive = true
 var spellbook:Spellbook
 var aim_point:Vector2
+@export var despawn_distance = 4000.0
 @export var starting_spells:Array[SpellResource]
 @export var spell_distance := 1000.0
 func _ready():
@@ -63,7 +64,10 @@ func _physics_process(delta):
 		
 		var direction = global_position.direction_to(Global.player.global_position)	
 		var distance = global_position.distance_to(Global.player.global_position)
-		
+		if (distance > despawn_distance):
+			queue_free()
+			return
+			
 		velocity = direction * speed
 		move_and_slide()
 		

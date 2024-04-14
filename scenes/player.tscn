@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://r3n64r1l4g0h"]
+[gd_scene load_steps=24 format=3 uid="uid://r3n64r1l4g0h"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_dis8l"]
 [ext_resource type="Resource" uid="uid://kraj17pdvec6" path="res://resources/fireball.tres" id="2_qmbsr"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="7_4rl60"]
 [ext_resource type="PackedScene" uid="uid://bcw7pt5uotbvl" path="res://scenes/animated_skeleton_body.tscn" id="8_wium2"]
 [ext_resource type="PackedScene" uid="uid://dertoe1q26aje" path="res://scenes/animated_goblin_body.tscn" id="9_llo2i"]
+[ext_resource type="PackedScene" uid="uid://ocnxjj72lmc3" path="res://scenes/boss1_animated_skeleton_body.tscn" id="10_t4f7r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omb5e"]
 size = Vector2(1050, 657)
@@ -170,15 +171,15 @@ show_percentage = false
 [node name="aim_point" type="Marker2D" parent="."]
 position = Vector2(1, -18)
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="SpawnerPath" type="Path2D" parent="."]
 position = Vector2(37, 135)
 scale = Vector2(2.13528, 2.13528)
 curve = SubResource("Curve2D_ughlk")
 script = ExtResource("7_4rl60")
 spawn_list = Array[PackedScene]([ExtResource("8_wium2"), ExtResource("9_llo2i")])
-spawn_interval = 0.5
+boss_spawn_list = Array[PackedScene]([ExtResource("10_t4f7r")])
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="SpawnerPath"]
 unique_name_in_owner = true
 position = Vector2(-191.788, -247.31)
 rotation = -0.118108

@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("2_8pbld")
 name = "Fireball"
-hitpoints = 1
+hitpoints = 4
 cooldown = 1.0
 speed = 250.0
 damage = 1.0

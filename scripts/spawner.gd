@@ -1,9 +1,12 @@
 extends Path2D
 @export var spawn_list:Array[PackedScene]
-@export var spawn_interval:float = 1.0
+@export var boss_spawn_list:Array[PackedScene]
+@export var spawn_interval:float = 2.0
+@export var boss_spawn_interval:float = 30.0
 @export var path_speed:= 0.1
 var curr_path_pos := 0.0
 var timer:Timer = Timer.new()
+var boss_timer:Timer = Timer.new()
 @onready var path_follow = %PathFollow2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,6 +15,12 @@ func _ready():
 	timer.one_shot = false
 	timer.timeout.connect(spawn)
 	timer.start()
+	
+	add_child(boss_timer)
+	boss_timer.set_wait_time(boss_spawn_interval)
+	boss_timer.one_shot = false
+	boss_timer.timeout.connect(spawn_boss)
+	boss_timer.start()	
 	
 func spawn():
 	if spawn_list.size() == 0 || !Global.tilemap || Global.enemy_count >= Global.max_enemies:
@@ -24,6 +33,19 @@ func spawn():
 	var new_spawn = spawn_list.pick_random().instantiate()
 	new_spawn.global_position = path_follow.global_position
 	get_parent().get_parent().add_child(new_spawn)
+	
+func spawn_boss():
+	print ("spawning boss!")
+	if spawn_list.size() == 0 || !Global.tilemap || Global.enemy_count >= Global.max_enemies:
+		return
+
+	if !_get_valid_spawn_position():
+		print ("No valid spawn position found")
+		return
+	print ("spawning creature")
+	var new_spawn = boss_spawn_list.pick_random().instantiate()
+	new_spawn.global_position = path_follow.global_position
+	get_parent().get_parent().add_child(new_spawn)	
 	
 func _get_valid_spawn_position(): 
 	for i in 10:
