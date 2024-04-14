@@ -48,22 +48,23 @@ func spawn_boss():
 	get_parent().get_parent().add_child(new_spawn)	
 	
 func _get_valid_spawn_position(): 
-	for i in 10:
+	for _i in 10:
 		var ppos = path_follow.global_position
 		var tilemap = Global.tilemap
 		var local_pos = tilemap.to_local(ppos)
-		var offsets:Array[Vector2] = [Vector2(-1,1), Vector2(-1,0), Vector2(-1,-1),Vector2(0,1), Vector2(0,0), Vector2(0,-1), Vector2(1,1), Vector2(1,0), Vector2(1,-1)]
-		var no_spawn = false
-		for offset in offsets:
-			var no_spawn_sample = get_custom_data_at(local_pos+offset,"no_spawn")
-			no_spawn = no_spawn_sample || no_spawn
-			if no_spawn:
-				break
+		var offsets:Array[Vector2] = [Vector2(-1,1), Vector2(-1,0), Vector2(-1,-1),Vector2(0,1), Vector2(0,-1), Vector2(1,1), Vector2(1,0), Vector2(1,-1)]
+		var no_spawn =  get_custom_data_at(local_pos,"no_spawn")
+		if !no_spawn:
+			for offset in offsets:
+				var no_spawn_sample = get_custom_data_at(local_pos+offset,"no_spawn")
+				no_spawn = no_spawn_sample || no_spawn
+				if no_spawn:
+					break
 				
 		if (!no_spawn):
 				return true		
 		path_follow.set_progress_ratio( path_follow.get_progress_ratio() + 0.1)
-	
+	return false
 	
 static func get_tile_data_at(position: Vector2) -> TileData:
 	var local_position: Vector2 =  Global.tilemap.local_to_map(position)

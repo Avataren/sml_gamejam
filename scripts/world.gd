@@ -41,6 +41,9 @@ func _ready():
 	_on_loop_sound()
 	
 func _on_loop_sound():
+	if Global.game_over:
+		return
+		
 	music_player.stream = music[current_song]
 	current_song = (current_song +1) % music.size()
 	#print("Starting next song:", music[current_song])

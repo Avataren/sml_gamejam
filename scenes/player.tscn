@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://r3n64r1l4g0h"]
+[gd_scene load_steps=25 format=3 uid="uid://r3n64r1l4g0h"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_dis8l"]
 [ext_resource type="Resource" uid="uid://kraj17pdvec6" path="res://resources/fireball.tres" id="2_qmbsr"]
@@ -81,6 +81,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -282.867, -236.503, 0, 0, 0, 0, -9, -269, 0, 0, 0, 0, 257.109, -239.781, 0, 0, 0, 0, 244.933, 110.992, 0, 0, 0, 0, -14.9863, 133.94, 0, 0, 0, 0, -291.297, 110.992, 0, 0, 0, 0, -284.272, -234.63)
 }
 point_count = 7
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hmity"]
+height = 40.0
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -178,11 +181,19 @@ curve = SubResource("Curve2D_ughlk")
 script = ExtResource("7_4rl60")
 spawn_list = Array[PackedScene]([ExtResource("8_wium2"), ExtResource("9_llo2i")])
 boss_spawn_list = Array[PackedScene]([ExtResource("10_t4f7r")])
+spawn_interval = 100.0
+boss_spawn_interval = 100.0
 
 [node name="PathFollow2D" type="PathFollow2D" parent="SpawnerPath"]
 unique_name_in_owner = true
 position = Vector2(-191.788, -247.31)
 rotation = -0.118108
 progress = 91.7206
+
+[node name="PlayerArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+position = Vector2(1, -28)
+shape = SubResource("CapsuleShape2D_hmity")
 
 [connection signal="area_exited" from="PlayerBoundsArea" to="." method="_on_area_2d_area_exited"]

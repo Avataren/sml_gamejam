@@ -18,9 +18,13 @@ func _process(delta):
 	position += direction * speed * delta
 
 func _on_area_entered(area: Area2D) -> void:
+	if (area.name == "PlayerBoundsArea"):
+		return
+		
 	var body = area.get_parent()
 	if body is CharacterBody2D:
 		if body.has_method("hit"):
+			print ("hitting ", body.name)
 			body.hit(spell_resource.damage)
 			impact_effect()
 			hitpoints -= 1

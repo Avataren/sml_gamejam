@@ -8,7 +8,7 @@
 script = ExtResource("2_offrq")
 name = "LightningBall"
 hitpoints = 1
-cooldown = 2.5
+cooldown = 0.5
 speed = 300.0
 damage = 1.0
 icon = ExtResource("1_u4jf0")
