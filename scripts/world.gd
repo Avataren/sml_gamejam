@@ -37,6 +37,7 @@ func _ready():
 	music.shuffle();
 	#music_player.connect("finished", _on_loop_sound)
 	get_tree().paused = false
+	Global.tilemap = %TileMap
 	_on_loop_sound()
 	
 func _on_loop_sound():

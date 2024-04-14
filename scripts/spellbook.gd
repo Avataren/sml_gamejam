@@ -30,7 +30,6 @@ func can_cast_spell(spell_name: String):
 
 func cast_spell(spell_name: String, position: Vector2, direction: Vector2):
 	#if can_cast_spell(spell_name):
-	print ("casting ", spell_name)
 	var spell = spells[spell_name].spell_scene.instantiate()
 	spell.collision_layer = spell_collision_layer
 	spell.collision_mask = spell_collision_mask

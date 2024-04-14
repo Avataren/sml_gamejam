@@ -14,13 +14,16 @@ func _ready():
 	_play_animation_rnd("idle")
 	last_position = global_position
 	aim_point = $aim_point.global_position
-	
+	Global.enemy_count+=1
 	spellbook = Spellbook.new()
 	spellbook.spell_collision_layer = 1
 	spellbook.spell_collision_mask = 1
 	add_child(spellbook)
 	for spell in starting_spells:
 		spellbook.add_spell(spell)	
+	
+func _exit_tree():
+	Global.enemy_count-=1
 	
 func _play_animation_rnd(animation_name):
 	if ($AnimationPlayer.current_animation == animation_name):
