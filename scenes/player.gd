@@ -4,11 +4,17 @@ const SPEED = 100.0
 @onready var sprite = %Sprite2D
 @onready var spellbook:Spellbook
 @export var starting_spells:Array[SpellResource]
+var current_wave:Node2D
+@export var all_waves:Array[PackedScene]
+@export var current_wave_index:int = 0
+
 var aim_point:Vector2
 
 var max_hp = 10
 var hp = max_hp
 var alive = true
+
+var wave_timer:Timer = Timer.new()
 
 @onready var player_area:Area2D = %PlayerBoundsArea
 func _ready():
@@ -23,6 +29,32 @@ func _ready():
 	add_child(spellbook)
 	for spell in starting_spells:
 		spellbook.add_spell(spell)
+		
+	wave_timer.one_shot = true
+	add_child(wave_timer)
+	_next_wave()
+
+func _free_current_wave():
+	for child in get_children():
+		if child is BaseWave:
+			child.queue_free()
+		
+func _next_wave():
+	print ("next_wave")
+	if all_waves.size() >=  current_wave_index:
+		_free_current_wave()
+		current_wave = all_waves[current_wave_index].instantiate()
+		add_child(current_wave)
+		current_wave_index+=1
+		
+		wave_timer.set_wait_time(current_wave.wave_duration)
+		wave_timer.timeout.connect(_next_wave)
+		wave_timer.start()		
+	else:
+		current_wave_index = 0
+		if (all_waves.size() > 0):
+			_next_wave()
+	
 	
 func hit(damage):
 	hp -= damage;
