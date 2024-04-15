@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SpellResource" load_steps=4 format=3 uid="uid://bo7fo5n4k70ct"]
+
+[ext_resource type="Texture2D" uid="uid://qwjcisww1grv" path="res://icons/47.png" id="1_n7g15"]
+[ext_resource type="Script" path="res://resources/SpellResource.gd" id="2_jenvj"]
+[ext_resource type="PackedScene" uid="uid://btfrqsj4vs73e" path="res://spells/poison_cloud.tscn" id="3_ne32k"]
+
+[resource]
+script = ExtResource("2_jenvj")
+name = "Poison cloud"
+hitpoints = 1
+cooldown = 0.5
+speed = 1.0
+damage = 1.0
+icon = ExtResource("1_n7g15")
+spell_scene = ExtResource("3_ne32k")
+life_time = 5.0
+radius = 150.0

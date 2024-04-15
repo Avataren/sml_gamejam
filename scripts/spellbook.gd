@@ -29,13 +29,19 @@ func can_cast_spell(spell_name: String):
 
 func cast_spell(spell_name: String, position: Vector2, direction: Vector2):
 	#print ("Casting ", spell_name)
+	#var num_missiles = 4
+	#var timeout = spells[spell_name].cooldown / float(num_missiles)
+	#for i in num_missiles:
 	var spell = spells[spell_name].spell_scene.instantiate()
 	spell.collision_layer = spell_collision_layer
 	spell.collision_mask = spell_collision_mask
 	spell.spell_resource = spells[spell_name]
 	spell.position = position
+	#spell.rotation = PI*2.0 / float(num_missiles)
 	spell.direction = direction
-	get_parent().get_parent().add_child(spell)
+	get_parent().get_parent().add_child.call_deferred(spell)
+	#await get_tree().create_timer(timeout).timeout
+		
 
 func _on_spell_timer_timeout(spell_name: String):
 	if Global.game_over:
