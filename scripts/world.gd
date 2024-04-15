@@ -65,6 +65,7 @@ func _process(_delta):
 			print ("GAME_OVER")
 			$Game_HUD.hide()
 			Global.game_over=true
+			await get_tree().create_timer(1.0).timeout
 			get_tree().create_tween().tween_property(%WorldEnvironment.environment,"tonemap_exposure",0.0, 2.0)
 			get_tree().create_tween().tween_property(music_player, "volume_db", -80, 0.5)
 			await get_tree().create_timer(0.6).timeout
