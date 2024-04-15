@@ -138,6 +138,9 @@ collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_ucpxs")
 
+[node name="spell_cast_point" type="Marker2D" parent="."]
+position = Vector2(1, -36)
+
 [node name="MobArea" type="Area2D" parent="."]
 position = Vector2(1, -1)
 collision_layer = 8
@@ -162,6 +165,7 @@ texture = ExtResource("2_0i3oj")
 offset = Vector2(0, -36.275)
 hframes = 12
 vframes = 3
+frame = 7
 
 [node name="shadow" type="Sprite2D" parent="mob_sprite"]
 modulate = Color(0.196078, 0.196078, 0.196078, 0.352941)

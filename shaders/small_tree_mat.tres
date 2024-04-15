@@ -5,7 +5,7 @@
 [resource]
 shader = ExtResource("1_r5cng")
 shader_parameter/speed = 1.0
-shader_parameter/wind = 5.0
+shader_parameter/wind = 12.0
 shader_parameter/height = 32.0
 shader_parameter/fadeHeight = 0.01
 shader_parameter/noise_scale = 25.0

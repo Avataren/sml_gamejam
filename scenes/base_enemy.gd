@@ -7,6 +7,8 @@ var actual_velocity:= 0.0
 var alive = true
 var spellbook:Spellbook
 var aim_point:Vector2
+var spell_cast_point:Vector2
+
 @export var despawn_distance = 4000.0
 @export var starting_spells:Array[SpellResource]
 @export var spell_distance := 1000.0
@@ -15,6 +17,9 @@ func _ready():
 	_play_animation_rnd("idle")
 	last_position = global_position
 	aim_point = $aim_point.global_position
+	
+	spell_cast_point = $spell_cast_point.global_position
+		
 	Global.enemy_count+=1
 	spellbook = Spellbook.new()
 	spellbook.spell_collision_layer = 1
@@ -61,7 +66,10 @@ func _melee_attack():
 func _physics_process(delta):
 	if (!alive):
 		return;
+		
 	aim_point = $aim_point.global_position
+	spell_cast_point = $spell_cast_point.global_position
+	
 	actual_velocity = (global_position - last_position).length() / delta
 	last_position = global_position	
 	if (Global.player):
@@ -93,7 +101,7 @@ func can_cast_spell(_spell_name):
 	return  dist < spell_distance
 				
 func get_spell_casting_position(_spell_name):
-	return aim_point
+	return spell_cast_point
 	
 func get_spell_casting_direction(spell):
 	return (Global.player.aim_point - get_spell_casting_position(spell)).normalized()

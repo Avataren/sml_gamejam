@@ -199,8 +199,11 @@ texture = ExtResource("3_6i1i3")
 offset = Vector2(0, -82.155)
 
 [node name="aim_point" type="Marker2D" parent="."]
-position = Vector2(4, -22)
+position = Vector2(5.5, -38.5)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = ExtResource("5_yqk5u")
 offset = Vector2(0, -67.59)
+
+[node name="spell_cast_point" type="Marker2D" parent="."]
+position = Vector2(6, -49.5)

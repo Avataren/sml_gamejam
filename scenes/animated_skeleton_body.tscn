@@ -180,6 +180,7 @@ texture = ExtResource("1_obt5c")
 offset = Vector2(0, -36.275)
 hframes = 12
 vframes = 3
+frame = 31
 
 [node name="shadow" type="Sprite2D" parent="mob_sprite"]
 modulate = Color(0.196078, 0.196078, 0.196078, 0.352941)
@@ -194,3 +195,6 @@ position = Vector2(4, -25)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_nt4cc")
+
+[node name="spell_cast_point" type="Marker2D" parent="."]
+position = Vector2(16, -42)
