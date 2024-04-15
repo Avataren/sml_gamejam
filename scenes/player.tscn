@@ -1,14 +1,15 @@
-[gd_scene load_steps=30 format=3 uid="uid://r3n64r1l4g0h"]
+[gd_scene load_steps=31 format=3 uid="uid://r3n64r1l4g0h"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_dis8l"]
 [ext_resource type="Resource" uid="uid://kraj17pdvec6" path="res://spells/fireball.tres" id="2_p0fhe"]
-[ext_resource type="Resource" uid="uid://b8pqcjifcv07r" path="res://spells/damage_shield.tres" id="4_qdhtt"]
 [ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="4_r41mm"]
 [ext_resource type="Texture2D" uid="uid://dn7c871t4dcr0" path="res://sprites/wizard/wizard_full.png" id="5_e35pa"]
 [ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="5_jcspf"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="7_4rl60"]
 [ext_resource type="PackedScene" uid="uid://bcw7pt5uotbvl" path="res://scenes/animated_skeleton_body.tscn" id="8_wium2"]
+[ext_resource type="PackedScene" uid="uid://dc7ickbwxqn7o" path="res://scenes/animated_flying_eye_body.tscn" id="9_3cuup"]
 [ext_resource type="PackedScene" uid="uid://dertoe1q26aje" path="res://scenes/animated_goblin_body.tscn" id="9_llo2i"]
+[ext_resource type="PackedScene" uid="uid://bolfxasr1tq1d" path="res://scenes/animated_mushroom_body.tscn" id="10_fteel"]
 [ext_resource type="PackedScene" uid="uid://ocnxjj72lmc3" path="res://scenes/boss1_animated_skeleton_body.tscn" id="10_t4f7r"]
 [ext_resource type="AudioStream" uid="uid://c3esr2a3u31aq" path="res://sfx/death.wav" id="11_ax5iw"]
 
@@ -152,7 +153,7 @@ _data = {
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_dis8l")
-starting_spells = Array[Resource("res://resources/SpellResource.gd")]([ExtResource("2_p0fhe"), ExtResource("4_qdhtt")])
+starting_spells = Array[Resource("res://resources/SpellResource.gd")]([ExtResource("2_p0fhe")])
 
 [node name="PlayerBoundsArea" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -234,7 +235,7 @@ position = Vector2(37, 135)
 scale = Vector2(2.13528, 2.13528)
 curve = SubResource("Curve2D_ughlk")
 script = ExtResource("7_4rl60")
-spawn_list = Array[PackedScene]([ExtResource("8_wium2"), ExtResource("9_llo2i")])
+spawn_list = Array[PackedScene]([ExtResource("8_wium2"), ExtResource("9_llo2i"), ExtResource("9_3cuup"), ExtResource("10_fteel")])
 boss_spawn_list = Array[PackedScene]([ExtResource("10_t4f7r")])
 spawn_interval = 0.1
 path_speed = 10.0

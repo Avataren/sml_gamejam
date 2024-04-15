@@ -9,12 +9,11 @@ var aim_point:Vector2
 var max_hp = 10
 var hp = max_hp
 var alive = true
-var first = true
 
 @onready var player_area:Area2D = %PlayerBoundsArea
 func _ready():
 	Global.player = self
-
+	add_to_group("player")
 	%ProgressBar.max_value = max_hp
 	%ProgressBar.value = max_hp
 	$AnimationPlayer.play("idle")
@@ -24,7 +23,6 @@ func _ready():
 	add_child(spellbook)
 	for spell in starting_spells:
 		spellbook.add_spell(spell)
-	
 	
 func hit(damage):
 	hp -= damage;
@@ -40,9 +38,6 @@ func hit(damage):
 func _physics_process(_delta):
 	if !alive:
 		return;
-	if first:
-		spellbook.cast_initial_spells()
-		first = false
 		
 	aim_point = $aim_point.global_position
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")

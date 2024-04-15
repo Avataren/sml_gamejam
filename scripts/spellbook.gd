@@ -18,10 +18,7 @@ func add_spell(spell_resource: SpellResource):
 	var callable = Callable(self, "_on_spell_timer_timeout").bind(spell_resource.name)
 	timer.timeout.connect(callable)
 	timers[spell_resource.name] = timer
-	
-func cast_initial_spells():
-	for spell in spells:
-		_on_spell_timer_timeout(spell)
+	_on_spell_timer_timeout(spell_resource.name)
 
 func _exit_tree():
 	for timer in timers:

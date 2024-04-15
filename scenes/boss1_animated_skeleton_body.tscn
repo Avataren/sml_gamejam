@@ -1,11 +1,26 @@
-[gd_scene load_steps=16 format=3 uid="uid://ocnxjj72lmc3"]
+[gd_scene load_steps=19 format=3 uid="uid://ocnxjj72lmc3"]
 
 [ext_resource type="Script" path="res://scenes/base_enemy.gd" id="1_e1ahl"]
 [ext_resource type="Texture2D" uid="uid://1m3a6qcjm3n2" path="res://sprites/enemies/Skeleton/skelly-0.png" id="2_2kxha"]
-[ext_resource type="Resource" uid="uid://wtmsl82pox06" path="res://spells/enemy_fireball.tres" id="2_paw3t"]
+[ext_resource type="Texture2D" uid="uid://buujy5n3oh5xj" path="res://sprites/particles/starbright.tga" id="2_dblob"]
 [ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="3_6i1i3"]
 [ext_resource type="AudioStream" uid="uid://bsxbkc12ffgrj" path="res://sfx/swish_2.wav" id="3_60xha"]
+[ext_resource type="Script" path="res://resources/SpellResource.gd" id="3_fqplp"]
+[ext_resource type="PackedScene" uid="uid://dqafhbgbcx3au" path="res://spells/enemy_fireball.tscn" id="4_0gi0n"]
 [ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="5_yqk5u"]
+
+[sub_resource type="Resource" id="Resource_cmc53"]
+resource_local_to_scene = true
+script = ExtResource("3_fqplp")
+name = "LightningBall"
+hitpoints = 1
+cooldown = 1.0
+speed = 300.0
+damage = 1.0
+icon = ExtResource("2_dblob")
+spell_scene = ExtResource("4_0gi0n")
+life_time = 5.0
+radius = 100.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4s1k"]
 height = 50.0
@@ -161,7 +176,7 @@ motion_mode = 1
 script = ExtResource("1_e1ahl")
 speed = 60.0
 hp = 20
-starting_spells = Array[Resource("res://resources/SpellResource.gd")]([ExtResource("2_paw3t")])
+starting_spells = Array[ExtResource("3_fqplp")]([SubResource("Resource_cmc53")])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
