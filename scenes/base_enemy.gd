@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @export var attack_distance := 50.0
 @export var speed := 50.0
+@export var loot_table: Array[PackedScene]
 var last_position: Vector2
 var actual_velocity:= 0.0
 @export var hp = 2
@@ -49,14 +50,23 @@ func hit(damage):
 		$AnimationPlayer.play("hit")
 	hp -= damage
 	if (hp <= 0):
-		$CollisionShape2D.set_deferred("disabled", true)
-		alive = false
-		$MobArea.collision_mask=0
-		$MobArea.collision_layer=0
-		$AnimationPlayer.stop()
-		$AnimationPlayer.play("death")
-		await $AnimationPlayer.animation_finished
-		queue_free()
+		_die()
+	
+func _die():
+	$CollisionShape2D.set_deferred("disabled", true)
+	alive = false
+	$MobArea.collision_mask=0
+	$MobArea.collision_layer=0
+	$AnimationPlayer.stop()
+	$AnimationPlayer.play("death")
+	await $AnimationPlayer.animation_finished	
+	if (loot_table.size() > 0):
+		var loot = loot_table.pick_random().instantiate()
+		print("Dropping loot:", loot.name)
+		Global.world.add_child(loot)
+		loot.global_position = global_position
+		
+	queue_free()
 	
 func _melee_attack():
 	if Global.game_over:

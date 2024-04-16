@@ -30,6 +30,7 @@ var game_over_music = preload("res://music/you died.mp3")
 var current_song:=0
 @export var darkness:Color = Color.WHITE
 func _ready():
+	Global.world = self
 	Global.game_over = false
 	Global.tilemap = $WorldTileMap
 	$CanvasModulate.color = darkness;

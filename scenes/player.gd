@@ -41,7 +41,7 @@ func _free_current_wave():
 		
 func _next_wave():
 	print ("next_wave")
-	if all_waves.size() >=  current_wave_index:
+	if len(all_waves) >=  current_wave_index:
 		_free_current_wave()
 		current_wave = all_waves[current_wave_index].instantiate()
 		add_child(current_wave)
