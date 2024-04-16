@@ -16,3 +16,4 @@ spell_scene = ExtResource("3_xqofd")
 life_time = 4.0
 radius = 150.0
 tint = Color(0.18782, 0.364672, 0.145807, 1)
+projectile_count = 1

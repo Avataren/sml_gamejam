@@ -12,3 +12,4 @@ class_name SpellResource
 @export var life_time: float = 5.0
 @export var radius: float = 100.0
 @export var tint:Color = Color.WHITE
+@export var projectile_count:int = 1

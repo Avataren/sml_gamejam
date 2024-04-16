@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SpellResource" load_steps=4 format=3 uid="uid://bqhlqabhq3122"]
+
+[ext_resource type="Texture2D" uid="uid://bfolgd47g2od5" path="res://sprites/particles/firecloud.tga" id="1_dpjwu"]
+[ext_resource type="Script" path="res://resources/SpellResource.gd" id="2_ixtrw"]
+[ext_resource type="PackedScene" uid="uid://bfdyy7cvrck45" path="res://spells/fireball.tscn" id="3_3uuor"]
+
+[resource]
+script = ExtResource("2_ixtrw")
+name = "comet strike"
+hitpoints = 1
+cooldown = 2.5
+speed = 400.0
+damage = 4.0
+icon = ExtResource("1_dpjwu")
+spell_scene = ExtResource("3_3uuor")
+life_time = 5.0
+radius = 100.0
+tint = Color(0.461355, 0.00278446, 0.887466, 1)
+projectile_count = 4

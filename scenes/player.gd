@@ -29,7 +29,9 @@ func _ready():
 	spellbook.spell_collision_layer = 2
 	spellbook.spell_collision_mask = 0b00000000_00000000_00000000_00001000
 	add_child(spellbook)
+	print ("starting spells count:", len(starting_spells))
 	for spell in starting_spells:
+		print ("adding ", spell.name, " to spellbook")
 		spellbook.add_spell(spell)
 		
 	wave_timer.one_shot = true

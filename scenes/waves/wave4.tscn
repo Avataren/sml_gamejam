@@ -17,10 +17,10 @@ curve = SubResource("Curve2D_ughlk")
 script = ExtResource("1_8kdd0")
 spawn_list = Array[PackedScene]([ExtResource("2_ld0ka")])
 boss_spawn_list = Array[PackedScene]([ExtResource("3_nkvqw")])
-spawn_interval = 0.1
+spawn_interval = 0.2
 boss_spawn_interval = 60.0
 path_speed = 10.0
-max_enemies_in_wave = 500
+max_enemies_in_wave = 300
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 unique_name_in_owner = true

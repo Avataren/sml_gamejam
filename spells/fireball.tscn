@@ -33,7 +33,6 @@ point_count = 2
 curve = SubResource("Curve_qwbgv")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lmghk"]
-lifetime_randomness = 0.05
 particle_flag_disable_z = true
 emission_shape_offset = Vector3(0, -100, 0)
 emission_shape = 1
@@ -58,12 +57,13 @@ script = ExtResource("1_ypygg")
 explosion = ExtResource("2_6i8hi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -12)
+position = Vector2(0, -25)
 shape = SubResource("CircleShape2D_3kk73")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(2, 1.2, 1.2, 1)
 material = SubResource("CanvasItemMaterial_hjvow")
+position = Vector2(0, -12)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_24n0c")
 offset = Vector2(0, -50)
@@ -71,12 +71,11 @@ offset = Vector2(0, -50)
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 y_sort_enabled = true
 material = SubResource("CanvasItemMaterial_ghpdr")
-position = Vector2(0, 11)
 scale = Vector2(0.25, 0.25)
-amount = 32
+amount = 64
 process_material = SubResource("ParticleProcessMaterial_lmghk")
 texture = ExtResource("4_rthep")
-lifetime = 0.1
+lifetime = 0.2
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, -11)

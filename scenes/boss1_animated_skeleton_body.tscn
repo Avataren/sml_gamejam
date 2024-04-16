@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="3_6i1i3"]
 [ext_resource type="AudioStream" uid="uid://bsxbkc12ffgrj" path="res://sfx/swish_2.wav" id="3_60xha"]
 [ext_resource type="Script" path="res://resources/SpellResource.gd" id="3_fqplp"]
-[ext_resource type="PackedScene" uid="uid://dqafhbgbcx3au" path="res://spells/enemy_fireball.tscn" id="4_0gi0n"]
+[ext_resource type="PackedScene" uid="uid://dqafhbgbcx3au" path="res://spells/magic_missile.tscn" id="4_0gi0n"]
 [ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="5_yqk5u"]
 
 [sub_resource type="Resource" id="Resource_l0vno"]
@@ -23,6 +23,7 @@ spell_scene = ExtResource("4_0gi0n")
 life_time = 5.0
 radius = 100.0
 tint = Color(0.642493, 0.000309577, 0.643232, 1)
+projectile_count = 1
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4s1k"]
 height = 50.0

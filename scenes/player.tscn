@@ -1,7 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://r3n64r1l4g0h"]
+[gd_scene load_steps=33 format=3 uid="uid://r3n64r1l4g0h"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_dis8l"]
-[ext_resource type="Resource" uid="uid://kraj17pdvec6" path="res://spells/fireball.tres" id="2_p0fhe"]
+[ext_resource type="Texture2D" uid="uid://buujy5n3oh5xj" path="res://sprites/particles/starbright.tga" id="2_v26d5"]
+[ext_resource type="Script" path="res://resources/SpellResource.gd" id="3_66nu1"]
+[ext_resource type="PackedScene" uid="uid://dqafhbgbcx3au" path="res://spells/magic_missile.tscn" id="4_pfxsx"]
 [ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="4_r41mm"]
 [ext_resource type="PackedScene" uid="uid://cxenjbv85prds" path="res://scenes/waves/wave2.tscn" id="4_uyxk8"]
 [ext_resource type="PackedScene" uid="uid://dlmx1ogx2h3pw" path="res://scenes/waves/wave3.tscn" id="5_bbyfw"]
@@ -11,8 +13,22 @@
 [ext_resource type="PackedScene" uid="uid://g506ps52i1tq" path="res://scenes/waves/wave4.tscn" id="6_gqfll"]
 [ext_resource type="PackedScene" uid="uid://5vunl0aejxuo" path="res://scenes/waves/wave5.tscn" id="7_g2g8l"]
 [ext_resource type="PackedScene" uid="uid://c35tmnxn801x6" path="res://scenes/waves/wave6.tscn" id="8_ue1h0"]
-[ext_resource type="PackedScene" uid="uid://qxvk7rn0ow3p" path="res://spells/blood_splat.tscn" id="9_w7e11"]
 [ext_resource type="AudioStream" uid="uid://c3esr2a3u31aq" path="res://sfx/death.wav" id="11_ax5iw"]
+
+[sub_resource type="Resource" id="Resource_v7sti"]
+resource_local_to_scene = true
+script = ExtResource("3_66nu1")
+name = "Magic Missile"
+hitpoints = 1
+cooldown = 1.0
+speed = 250.0
+damage = 1.0
+icon = ExtResource("2_v26d5")
+spell_scene = ExtResource("4_pfxsx")
+life_time = 5.0
+radius = 100.0
+tint = Color(0, 0.799456, 0.799576, 1)
+projectile_count = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omb5e"]
 size = Vector2(1050, 657)
@@ -148,9 +164,8 @@ _data = {
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_dis8l")
-starting_spells = Array[Resource("res://resources/SpellResource.gd")]([ExtResource("2_p0fhe")])
+starting_spells = Array[ExtResource("3_66nu1")]([SubResource("Resource_v7sti")])
 all_waves = Array[PackedScene]([ExtResource("6_833xn"), ExtResource("4_uyxk8"), ExtResource("5_bbyfw"), ExtResource("6_gqfll"), ExtResource("7_g2g8l"), ExtResource("8_ue1h0")])
-take_dmg_effect = ExtResource("9_w7e11")
 
 [node name="PlayerBoundsArea" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -187,7 +202,7 @@ texture = ExtResource("5_jcspf")
 
 [node name="StaffPosition" type="Marker2D" parent="Sprite2D"]
 unique_name_in_owner = true
-position = Vector2(10, -66)
+position = Vector2(10, -57)
 
 [node name="StaffParticles" type="GPUParticles2D" parent="Sprite2D"]
 visible = false
