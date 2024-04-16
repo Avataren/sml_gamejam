@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c8ilufvo5si26"]
+[gd_scene load_steps=19 format=3 uid="uid://c8ilufvo5si26"]
 
 [ext_resource type="Texture2D" uid="uid://4q8pj0qnm85l" path="res://sprites/scroll_shadow_64.png" id="1_fc7fw"]
 [ext_resource type="Script" path="res://spells/spell_scroll.gd" id="1_ig1lh"]
@@ -6,9 +6,26 @@
 [ext_resource type="Resource" uid="uid://b8pqcjifcv07r" path="res://spells/damage_shield.tres" id="2_uxihp"]
 [ext_resource type="Resource" uid="uid://wtmsl82pox06" path="res://spells/enemy_fireball.tres" id="3_k03uc"]
 [ext_resource type="Resource" uid="uid://kraj17pdvec6" path="res://spells/fireball.tres" id="4_m3ejt"]
+[ext_resource type="Texture2D" uid="uid://qwjcisww1grv" path="res://icons/47.png" id="5_4o8eg"]
 [ext_resource type="PackedScene" uid="uid://sgmsftfwvi3c" path="res://spells/small_explosion.tscn" id="5_aqwcv"]
-[ext_resource type="Resource" uid="uid://bo7fo5n4k70ct" path="res://spells/poison_cloud.tres" id="5_srf8f"]
+[ext_resource type="Script" path="res://resources/SpellResource.gd" id="6_jiufd"]
+[ext_resource type="PackedScene" uid="uid://btfrqsj4vs73e" path="res://spells/poison_cloud.tscn" id="7_lv6ro"]
 [ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="9_g024o"]
+[ext_resource type="AudioStream" uid="uid://dmly4p2cbdqgr" path="res://sfx/magic_words.wav" id="10_18jsm"]
+
+[sub_resource type="Resource" id="Resource_qfrck"]
+resource_local_to_scene = true
+script = ExtResource("6_jiufd")
+name = "Poison cloud"
+hitpoints = 100
+cooldown = 0.5
+speed = 1.0
+damage = 1.0
+icon = ExtResource("5_4o8eg")
+spell_scene = ExtResource("7_lv6ro")
+life_time = 5.0
+radius = 150.0
+tint = Color(0.239942, 1.64006e-05, 0.211712, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2xpc"]
 radius = 22.0
@@ -48,7 +65,7 @@ turbulence_noise_scale = 3.599
 [node name="SpellScroll" type="Area2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ig1lh")
-spells_list = Array[Resource("res://resources/SpellResource.gd")]([ExtResource("2_uxihp"), ExtResource("3_k03uc"), ExtResource("4_m3ejt"), ExtResource("5_srf8f")])
+spells_list = Array[ExtResource("6_jiufd")]([ExtResource("2_uxihp"), ExtResource("3_k03uc"), ExtResource("4_m3ejt"), SubResource("Resource_qfrck")])
 pickup_effect = ExtResource("5_aqwcv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -71,6 +88,11 @@ z_index = 1
 texture = ExtResource("1_fc7fw")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0, 1, 1)
 texture = ExtResource("9_g024o")
+texture_scale = 1.5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_18jsm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

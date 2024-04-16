@@ -16,4 +16,7 @@ func _on_body_entered(body: Node2D) -> void:
 				get_parent().get_parent().add_child(effect)
 			else:
 				print ("player has all spells")
+		$Node2D.hide()
+		$AudioStreamPlayer.play()
+		await get_tree().create_timer(2.5).timeout
 		queue_free()
