@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8ilufvo5si26"]
+[gd_scene load_steps=15 format=3 uid="uid://c8ilufvo5si26"]
 
 [ext_resource type="Texture2D" uid="uid://4q8pj0qnm85l" path="res://sprites/scroll_shadow_64.png" id="1_fc7fw"]
 [ext_resource type="Script" path="res://spells/spell_scroll.gd" id="1_ig1lh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://kraj17pdvec6" path="res://spells/fireball.tres" id="4_m3ejt"]
 [ext_resource type="PackedScene" uid="uid://sgmsftfwvi3c" path="res://spells/small_explosion.tscn" id="5_aqwcv"]
 [ext_resource type="Resource" uid="uid://bo7fo5n4k70ct" path="res://spells/poison_cloud.tres" id="5_srf8f"]
+[ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="9_g024o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2xpc"]
 radius = 22.0
@@ -68,5 +69,8 @@ fixed_fps = 60
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 z_index = 1
 texture = ExtResource("1_fc7fw")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("9_g024o")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -5,11 +5,11 @@ class_name BaseWave
 @export var boss_spawn_list:Array[PackedScene]
 @export var spawn_interval:float = 0.5
 @export var boss_spawn_interval:float = 50.0
-@export var path_speed:= 0.1
+@export var path_speed:= 0.15
 @export var max_enemies_in_wave:int = 100
 @export var wave_duration:int = 60
 
-var curr_path_pos := 0.0
+var curr_path_pos := 0.25
 var timer:Timer = Timer.new()
 var boss_timer:Timer = Timer.new()
 @onready var path_follow = %PathFollow2D

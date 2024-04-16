@@ -8,6 +8,8 @@ var current_wave:Node2D
 @export var all_waves:Array[PackedScene]
 @export var current_wave_index:int = 0
 
+@export var take_dmg_effect:PackedScene
+
 var aim_point:Vector2
 
 var max_hp = 10
@@ -40,8 +42,9 @@ func _free_current_wave():
 			child.queue_free()
 		
 func _next_wave():
-	print ("next_wave")
-	if len(all_waves) >=  current_wave_index:
+	print ("next_wave ", current_wave_index, " out of ", len(all_waves))
+	if len(all_waves) > current_wave_index:
+		
 		_free_current_wave()
 		current_wave = all_waves[current_wave_index].instantiate()
 		add_child(current_wave)
@@ -57,6 +60,11 @@ func _next_wave():
 	
 	
 func hit(damage):
+	if take_dmg_effect:
+		var effect = take_dmg_effect.instantiate()
+		effect.global_position = $aim_point.global_position
+		get_parent().add_child(effect)
+		
 	hp -= damage;
 	%ProgressBar.value = hp;
 	if (hp <= 0):

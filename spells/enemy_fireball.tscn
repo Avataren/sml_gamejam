@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqafhbgbcx3au"]
+[gd_scene load_steps=14 format=3 uid="uid://dqafhbgbcx3au"]
 
 [ext_resource type="Script" path="res://spells/enemy_fireball.gd" id="1_gge0j"]
+[ext_resource type="PackedScene" uid="uid://qxvk7rn0ow3p" path="res://spells/blood_splat.tscn" id="2_l5xhu"]
 [ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="3_ww8b8"]
 [ext_resource type="AudioStream" uid="uid://cvt7ih35trl8k" path="res://sfx/swish_3.wav" id="4_bodi8"]
 [ext_resource type="Texture2D" uid="uid://buujy5n3oh5xj" path="res://sprites/particles/starbright.tga" id="4_ry7c0"]
@@ -53,9 +54,10 @@ turbulence_noise_scale = 0.824
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_gge0j")
+explosion = ExtResource("2_l5xhu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -12)
+position = Vector2(0, -18)
 shape = SubResource("CircleShape2D_3kk73")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -63,13 +65,14 @@ modulate = Color(2, 1.2, 1.2, 1)
 material = SubResource("CanvasItemMaterial_hjvow")
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_ww8b8")
-offset = Vector2(0, -50)
+offset = Vector2(0, -75)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 modulate = Color(1.6, 1.6, 1.6, 1)
 material = SubResource("CanvasItemMaterial_ghpdr")
+position = Vector2(0, -7)
 scale = Vector2(0.25, 0.25)
-amount = 32
+amount = 128
 process_material = SubResource("ParticleProcessMaterial_lmghk")
 texture = ExtResource("4_ry7c0")
 lifetime = 0.2

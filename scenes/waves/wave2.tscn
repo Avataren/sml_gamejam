@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_6btn5"]
 [ext_resource type="PackedScene" uid="uid://dertoe1q26aje" path="res://scenes/animated_goblin_body.tscn" id="3_3kol0"]
-[ext_resource type="PackedScene" uid="uid://ocnxjj72lmc3" path="res://scenes/boss1_animated_skeleton_body.tscn" id="6_c4q10"]
+[ext_resource type="PackedScene" uid="uid://c0fiu5toi7wal" path="res://scenes/boss1_animated_goblin_body.tscn" id="3_8phsu"]
 
 [sub_resource type="Curve2D" id="Curve2D_ughlk"]
 _data = {
@@ -16,7 +16,7 @@ scale = Vector2(2.13528, 2.13528)
 curve = SubResource("Curve2D_ughlk")
 script = ExtResource("1_6btn5")
 spawn_list = Array[PackedScene]([ExtResource("3_3kol0")])
-boss_spawn_list = Array[PackedScene]([ExtResource("6_c4q10")])
+boss_spawn_list = Array[PackedScene]([ExtResource("3_8phsu")])
 path_speed = 10.0
 max_enemies_in_wave = 20
 

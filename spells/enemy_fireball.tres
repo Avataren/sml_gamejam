@@ -15,3 +15,4 @@ icon = ExtResource("1_5gei1")
 spell_scene = ExtResource("3_m72wt")
 life_time = 5.0
 radius = 100.0
+tint = Color(0, 0.799456, 0.799576, 1)

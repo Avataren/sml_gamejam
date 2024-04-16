@@ -7,9 +7,11 @@
 [resource]
 script = ExtResource("2_8pbld")
 name = "Fireball"
-hitpoints = 4
+hitpoints = 100
 cooldown = 1.0
 speed = 250.0
 damage = 1.0
 icon = ExtResource("1_5li6h")
 spell_scene = ExtResource("3_28yup")
+life_time = 5.0
+radius = 100.0

@@ -39,9 +39,22 @@ func cast_spell(spell_name: String, position: Vector2, direction: Vector2):
 	spell.position = position
 	#spell.rotation = PI*2.0 / float(num_missiles)
 	spell.direction = direction
+	
+	var sprite = get_spell_component(spell, "Sprite2D")
+	if sprite:
+		sprite.self_modulate = spells[spell_name].tint
+	var particles = get_spell_component(spell, "GPUParticles2D")
+	if particles:
+		particles.self_modulate = spells[spell_name].tint
+		
 	get_parent().get_parent().add_child.call_deferred(spell)
 	#await get_tree().create_timer(timeout).timeout
-		
+
+func get_spell_component(spell, type_name:String) -> Node:
+	for child in spell.get_children():
+		if child.get_class() == type_name:
+			return child
+	return null
 
 func _on_spell_timer_timeout(spell_name: String):
 	if Global.game_over:
