@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="9_g024o"]
 [ext_resource type="AudioStream" uid="uid://dmly4p2cbdqgr" path="res://sfx/magic_words.wav" id="10_18jsm"]
 
-[sub_resource type="Resource" id="Resource_qfrck"]
+[sub_resource type="Resource" id="Resource_10qum"]
 resource_local_to_scene = true
 script = ExtResource("6_jiufd")
 name = "Poison cloud"
@@ -65,7 +65,7 @@ turbulence_noise_scale = 3.599
 [node name="SpellScroll" type="Area2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ig1lh")
-spells_list = Array[ExtResource("6_jiufd")]([ExtResource("2_uxihp"), ExtResource("3_k03uc"), ExtResource("4_m3ejt"), SubResource("Resource_qfrck")])
+spells_list = Array[ExtResource("6_jiufd")]([ExtResource("2_uxihp"), ExtResource("3_k03uc"), ExtResource("4_m3ejt"), SubResource("Resource_10qum")])
 pickup_effect = ExtResource("5_aqwcv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
