@@ -43,11 +43,6 @@ func _on_area_entered(area: Area2D) -> void:
 			if (hitpoints <= 0):
 				death_effect()
 				_die()		
-	else:
-		impact_effect(global_position)
-		hitpoints -= 1
-		
-		
 	
 func _on_body_entered(_body):
 	pass
