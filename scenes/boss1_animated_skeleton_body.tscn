@@ -24,6 +24,7 @@ life_time = 5.0
 radius = 100.0
 tint = Color(0.642493, 0.000309577, 0.643232, 1)
 projectile_count = 1
+projectile_spread = 10.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4s1k"]
 height = 50.0

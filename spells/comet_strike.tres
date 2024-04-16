@@ -8,12 +8,13 @@
 script = ExtResource("2_ixtrw")
 name = "comet strike"
 hitpoints = 1
-cooldown = 2.5
+cooldown = 2.1
 speed = 400.0
-damage = 4.0
+damage = 5.0
 icon = ExtResource("1_dpjwu")
 spell_scene = ExtResource("3_3uuor")
 life_time = 5.0
 radius = 100.0
 tint = Color(0.461355, 0.00278446, 0.887466, 1)
-projectile_count = 4
+projectile_count = 16
+projectile_spread = 20.0

@@ -16,19 +16,19 @@
 [ext_resource type="AudioStream" uid="uid://c3esr2a3u31aq" path="res://sfx/death.wav" id="11_ax5iw"]
 
 [sub_resource type="Resource" id="Resource_v7sti"]
-resource_local_to_scene = true
 script = ExtResource("3_66nu1")
 name = "Magic Missile"
 hitpoints = 1
-cooldown = 1.0
+cooldown = 0.7
 speed = 250.0
-damage = 1.0
+damage = 2.0
 icon = ExtResource("2_v26d5")
 spell_scene = ExtResource("4_pfxsx")
 life_time = 5.0
 radius = 100.0
 tint = Color(0, 0.799456, 0.799576, 1)
 projectile_count = 1
+projectile_spread = 10.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omb5e"]
 size = Vector2(1050, 657)

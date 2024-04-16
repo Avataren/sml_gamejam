@@ -59,27 +59,31 @@ func get_spell_component(spell, type_name:String) -> Node:
 func _on_spell_timer_timeout(spell_name: String):
 	if Global.game_over:
 		return
-	print ("casting ", spell_name)
+	print("casting ", spell_name)
 	var parent = get_parent()
-	if !parent:
-		print ("no parent for spellbook!")
+	if not parent:
+		print("no parent for spellbook!")
 		return
-	print ("parent is: ", parent.name)
+	print("parent is: ", parent.name)
 	var pcount = spells[spell_name].projectile_count
-	print ("pcount is ", pcount)
+	print("pcount is ", pcount)
 	var base_direction = parent.get_spell_casting_direction(spell_name).normalized()
-	var base_position = parent.get_spell_casting_position(spell_name)
-	var degree_offset = 10  # degrees of separation between projectiles
+	var degree_offset =spells[spell_name].projectile_spread # degrees of separation between projectiles
 	var radian_offset = deg_to_rad(degree_offset)  # Convert degrees to radians
+	var half_offset_count = (pcount - 1) / 2.0  # Calculate half the number of offsets for symmetric distribution
 
 	while pcount > 0:
-		var direction = base_direction.rotated((pcount - spells[spell_name].projectile_count) * radian_offset)
-		var position = base_position  # Assuming the position remains the same for each projectile
+		var index = pcount - 1
+		var direction_adjustment = (index - half_offset_count) * radian_offset
+		var direction = base_direction.rotated(direction_adjustment)
+		var base_position = parent.get_spell_casting_position(spell_name)
+		var position = base_position
 
 		if parent.can_cast_spell(spell_name):
 			cast_spell(spell_name, position, direction)
 		else:
 			print("not allowed to cast yet!")
 
-		pcount = pcount - 1
+		pcount -= 1
 		await get_tree().create_timer(0.1).timeout
+
