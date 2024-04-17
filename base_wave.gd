@@ -56,10 +56,13 @@ func spawn_boss():
 		print ("No valid spawn position found")
 		return
 	print ("spawning boss")
-	var new_spawn = boss_spawn_list.pick_random().instantiate()
-	new_spawn.global_position = path_follow.global_position
-	get_parent().get_parent().add_child.call_deferred(new_spawn)	
-	
+	for new_spawn in boss_spawn_list:
+		if !_get_valid_spawn_position():
+			continue
+		new_spawn.global_position = path_follow.global_position
+		get_parent().get_parent().add_child.call_deferred(new_spawn)	
+		path_follow.set_progress_ratio( path_follow.get_progress_ratio() + 0.1)
+		
 func _get_valid_spawn_position(): 
 	for _i in 20:
 		var ppos = path_follow.global_position

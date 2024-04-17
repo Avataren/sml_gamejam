@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://btfrqsj4vs73e" path="res://spells/poison_cloud.tscn" id="3_xqofd"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("2_p3m5v")
 name = "Poison cloud"
 hitpoints = 100
@@ -15,5 +16,8 @@ icon = ExtResource("1_fabd1")
 spell_scene = ExtResource("3_xqofd")
 life_time = 4.0
 radius = 150.0
-tint = Color(0.18782, 0.364672, 0.145807, 1)
+tint = Color(0, 0.3868, 4.81308e-08, 1)
 projectile_count = 1
+projectile_spread = 10.0
+projectile_delay = 0.1
+random_direction = false

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_phmko"]
 [ext_resource type="PackedScene" uid="uid://dertoe1q26aje" path="res://scenes/animated_goblin_body.tscn" id="2_aeg6k"]
-[ext_resource type="PackedScene" uid="uid://ocnxjj72lmc3" path="res://scenes/boss1_animated_skeleton_body.tscn" id="3_h7p8w"]
 [ext_resource type="PackedScene" uid="uid://bolfxasr1tq1d" path="res://scenes/animated_mushroom_body.tscn" id="3_q1v62"]
+[ext_resource type="PackedScene" uid="uid://5y5yaug127ha" path="res://scenes/boss1_animated_mushroom_body.tscn" id="4_5xpyo"]
 
 [sub_resource type="Curve2D" id="Curve2D_ughlk"]
 _data = {
@@ -17,7 +17,7 @@ scale = Vector2(2.13528, 2.13528)
 curve = SubResource("Curve2D_ughlk")
 script = ExtResource("1_phmko")
 spawn_list = Array[PackedScene]([ExtResource("2_aeg6k"), ExtResource("3_q1v62")])
-boss_spawn_list = Array[PackedScene]([ExtResource("3_h7p8w")])
+boss_spawn_list = Array[PackedScene]([ExtResource("4_5xpyo")])
 spawn_interval = 0.1
 path_speed = 10.0
 

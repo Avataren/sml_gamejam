@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_8kdd0"]
 [ext_resource type="PackedScene" uid="uid://dc7ickbwxqn7o" path="res://scenes/animated_flying_eye_body.tscn" id="2_ld0ka"]
-[ext_resource type="PackedScene" uid="uid://ocnxjj72lmc3" path="res://scenes/boss1_animated_skeleton_body.tscn" id="3_nkvqw"]
+[ext_resource type="PackedScene" uid="uid://cchfynhn2utiv" path="res://scenes/boss1_animated_flying_eye_body.tscn" id="3_q7tqv"]
 
 [sub_resource type="Curve2D" id="Curve2D_ughlk"]
 _data = {
@@ -16,7 +16,7 @@ scale = Vector2(2.13528, 2.13528)
 curve = SubResource("Curve2D_ughlk")
 script = ExtResource("1_8kdd0")
 spawn_list = Array[PackedScene]([ExtResource("2_ld0ka")])
-boss_spawn_list = Array[PackedScene]([ExtResource("3_nkvqw")])
+boss_spawn_list = Array[PackedScene]([ExtResource("3_q7tqv")])
 spawn_interval = 0.2
 boss_spawn_interval = 60.0
 path_speed = 10.0

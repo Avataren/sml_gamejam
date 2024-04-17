@@ -1,22 +1,22 @@
-[gd_scene load_steps=23 format=3 uid="uid://c8ilufvo5si26"]
+[gd_scene load_steps=25 format=3 uid="uid://c8ilufvo5si26"]
 
 [ext_resource type="Texture2D" uid="uid://4q8pj0qnm85l" path="res://sprites/scroll_shadow_64.png" id="1_fc7fw"]
 [ext_resource type="Script" path="res://spells/spell_scroll.gd" id="1_ig1lh"]
 [ext_resource type="Texture2D" uid="uid://d0tkftqq6yfgl" path="res://sprites/particles/bloodsplat.tga" id="2_8bs6g"]
 [ext_resource type="Resource" uid="uid://b8pqcjifcv07r" path="res://spells/damage_shield.tres" id="2_uxihp"]
 [ext_resource type="Texture2D" uid="uid://buujy5n3oh5xj" path="res://sprites/particles/starbright.tga" id="3_xkllq"]
-[ext_resource type="Resource" uid="uid://kraj17pdvec6" path="res://spells/fireball.tres" id="4_m3ejt"]
 [ext_resource type="PackedScene" uid="uid://dqafhbgbcx3au" path="res://spells/magic_missile.tscn" id="5_2pc1e"]
 [ext_resource type="Texture2D" uid="uid://qwjcisww1grv" path="res://icons/47.png" id="5_4o8eg"]
 [ext_resource type="PackedScene" uid="uid://sgmsftfwvi3c" path="res://spells/small_explosion.tscn" id="5_aqwcv"]
+[ext_resource type="Texture2D" uid="uid://bfolgd47g2od5" path="res://sprites/particles/firecloud.tga" id="6_2fv4v"]
 [ext_resource type="Script" path="res://resources/SpellResource.gd" id="6_jiufd"]
 [ext_resource type="PackedScene" uid="uid://btfrqsj4vs73e" path="res://spells/poison_cloud.tscn" id="7_lv6ro"]
+[ext_resource type="PackedScene" uid="uid://bfdyy7cvrck45" path="res://spells/fireball.tscn" id="7_trean"]
 [ext_resource type="Resource" uid="uid://bqhlqabhq3122" path="res://spells/comet_strike.tres" id="8_ghsa6"]
 [ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="9_g024o"]
 [ext_resource type="AudioStream" uid="uid://dmly4p2cbdqgr" path="res://sfx/magic_words.wav" id="10_18jsm"]
-[ext_resource type="Resource" uid="uid://wtmsl82pox06" path="res://spells/magic_missle.tres" id="10_w0qqq"]
 
-[sub_resource type="Resource" id="Resource_he5x6"]
+[sub_resource type="Resource" id="Resource_5vj2l"]
 resource_local_to_scene = true
 script = ExtResource("6_jiufd")
 name = "Magic Missile"
@@ -34,7 +34,25 @@ projectile_spread = 10.0
 projectile_delay = 0.1
 random_direction = false
 
-[sub_resource type="Resource" id="Resource_32sfb"]
+[sub_resource type="Resource" id="Resource_iq0pb"]
+resource_local_to_scene = true
+script = ExtResource("6_jiufd")
+name = "Fireball"
+hitpoints = 100
+cooldown = 1.0
+speed = 250.0
+damage = 1.0
+icon = ExtResource("6_2fv4v")
+spell_scene = ExtResource("7_trean")
+life_time = 5.0
+radius = 100.0
+tint = Color(0.605275, 0.605274, 0.605274, 1)
+projectile_count = 2
+projectile_spread = 10.0
+projectile_delay = 0.1
+random_direction = true
+
+[sub_resource type="Resource" id="Resource_erjlf"]
 resource_local_to_scene = true
 script = ExtResource("6_jiufd")
 name = "Poison cloud"
@@ -47,6 +65,24 @@ spell_scene = ExtResource("7_lv6ro")
 life_time = 5.0
 radius = 150.0
 tint = Color(0.239942, 1.64006e-05, 0.211712, 1)
+projectile_count = 1
+projectile_spread = 10.0
+projectile_delay = 0.1
+random_direction = false
+
+[sub_resource type="Resource" id="Resource_8pald"]
+resource_local_to_scene = true
+script = ExtResource("6_jiufd")
+name = "Magic Missile"
+hitpoints = 1
+cooldown = 0.7
+speed = 250.0
+damage = 1.0
+icon = ExtResource("3_xkllq")
+spell_scene = ExtResource("5_2pc1e")
+life_time = 5.0
+radius = 100.0
+tint = Color(0, 0.799456, 0.799576, 1)
 projectile_count = 1
 projectile_spread = 10.0
 projectile_delay = 0.1
@@ -90,7 +126,7 @@ turbulence_noise_scale = 3.599
 [node name="SpellScroll" type="Area2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ig1lh")
-spells_list = Array[ExtResource("6_jiufd")]([ExtResource("2_uxihp"), SubResource("Resource_he5x6"), ExtResource("4_m3ejt"), SubResource("Resource_32sfb"), ExtResource("8_ghsa6"), ExtResource("10_w0qqq")])
+spells_list = Array[ExtResource("6_jiufd")]([ExtResource("2_uxihp"), SubResource("Resource_5vj2l"), SubResource("Resource_iq0pb"), SubResource("Resource_erjlf"), ExtResource("8_ghsa6"), SubResource("Resource_8pald")])
 pickup_effect = ExtResource("5_aqwcv")
 upgrade_effect = ExtResource("5_aqwcv")
 
@@ -115,6 +151,7 @@ texture = ExtResource("1_fc7fw")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(1, 0, 1, 1)
+energy = 1.5
 texture = ExtResource("9_g024o")
 texture_scale = 1.5
 
