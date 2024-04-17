@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://spells/fireball.gd" id="1_4dqnc"]
 [ext_resource type="PackedScene" uid="uid://sgmsftfwvi3c" path="res://spells/small_explosion.tscn" id="2_66ydo"]
 [ext_resource type="Texture2D" uid="uid://d0al76kbbyerr" path="res://sprites/shadows/shadow.png" id="3_ek6o2"]
+[ext_resource type="AudioStream" uid="uid://csnflks55xggg" path="res://sfx/laserShoot.wav" id="5_5wmsc"]
 [ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="5_6xu0d"]
-[ext_resource type="AudioStream" uid="uid://j0aevp6nx2ou" path="res://sfx/quick_spell.mp3" id="6_3or17"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3kk73"]
 radius = 4.0
@@ -39,7 +39,7 @@ texture_scale = 0.5
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("6_3or17")
+stream = ExtResource("5_5wmsc")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false

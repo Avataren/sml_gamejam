@@ -62,7 +62,7 @@ func _die():
 	await $AnimationPlayer.animation_finished	
 	if (loot_table.size() > 0):
 		var loot = loot_table.pick_random().instantiate()
-		print("Dropping loot:", loot.name)
+		#print("Dropping loot:", loot.name)
 		Global.world.add_child(loot)
 		loot.global_position = global_position
 		

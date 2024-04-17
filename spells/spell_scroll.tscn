@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c8ilufvo5si26"]
+[gd_scene load_steps=26 format=3 uid="uid://c8ilufvo5si26"]
 
 [ext_resource type="Texture2D" uid="uid://4q8pj0qnm85l" path="res://sprites/scroll_shadow_64.png" id="1_fc7fw"]
 [ext_resource type="Script" path="res://spells/spell_scroll.gd" id="1_ig1lh"]
@@ -15,8 +15,9 @@
 [ext_resource type="Resource" uid="uid://bqhlqabhq3122" path="res://spells/comet_strike.tres" id="8_ghsa6"]
 [ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="9_g024o"]
 [ext_resource type="AudioStream" uid="uid://dmly4p2cbdqgr" path="res://sfx/magic_words.wav" id="10_18jsm"]
+[ext_resource type="PackedScene" uid="uid://cqtkmultfknvj" path="res://scenes/infotext.tscn" id="12_lhivo"]
 
-[sub_resource type="Resource" id="Resource_5vj2l"]
+[sub_resource type="Resource" id="Resource_yrtgr"]
 resource_local_to_scene = true
 script = ExtResource("6_jiufd")
 name = "Magic Missile"
@@ -34,7 +35,7 @@ projectile_spread = 10.0
 projectile_delay = 0.1
 random_direction = false
 
-[sub_resource type="Resource" id="Resource_iq0pb"]
+[sub_resource type="Resource" id="Resource_dinl5"]
 resource_local_to_scene = true
 script = ExtResource("6_jiufd")
 name = "Fireball"
@@ -52,7 +53,7 @@ projectile_spread = 10.0
 projectile_delay = 0.1
 random_direction = true
 
-[sub_resource type="Resource" id="Resource_erjlf"]
+[sub_resource type="Resource" id="Resource_7xmft"]
 resource_local_to_scene = true
 script = ExtResource("6_jiufd")
 name = "Poison cloud"
@@ -70,7 +71,7 @@ projectile_spread = 10.0
 projectile_delay = 0.1
 random_direction = false
 
-[sub_resource type="Resource" id="Resource_8pald"]
+[sub_resource type="Resource" id="Resource_wu2pi"]
 resource_local_to_scene = true
 script = ExtResource("6_jiufd")
 name = "Magic Missile"
@@ -126,9 +127,10 @@ turbulence_noise_scale = 3.599
 [node name="SpellScroll" type="Area2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ig1lh")
-spells_list = Array[ExtResource("6_jiufd")]([ExtResource("2_uxihp"), SubResource("Resource_5vj2l"), SubResource("Resource_iq0pb"), SubResource("Resource_erjlf"), ExtResource("8_ghsa6"), SubResource("Resource_8pald")])
+spells_list = Array[ExtResource("6_jiufd")]([ExtResource("2_uxihp"), SubResource("Resource_yrtgr"), SubResource("Resource_dinl5"), SubResource("Resource_7xmft"), ExtResource("8_ghsa6"), SubResource("Resource_wu2pi")])
 pickup_effect = ExtResource("5_aqwcv")
 upgrade_effect = ExtResource("5_aqwcv")
+info_text = ExtResource("12_lhivo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)

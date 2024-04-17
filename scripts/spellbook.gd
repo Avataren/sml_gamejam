@@ -66,14 +66,14 @@ func get_spell_component(spell, type_name:String) -> Node:
 func _on_spell_timer_timeout(spell_name: String):
 	if Global.game_over:
 		return
-	print("casting ", spell_name)
+	#print("casting ", spell_name)
 	var parent = get_parent()
 	if not parent:
 		print("no parent for spellbook!")
 		return
-	print("parent is: ", parent.name)
+	#print("parent is: ", parent.name)
 	var pcount = spells[spell_name].projectile_count
-	print("pcount is ", pcount)
+	#print("pcount is ", pcount)
 	
 	var base_direction;
 	if !spells[spell_name].random_direction:
@@ -104,7 +104,7 @@ func _on_spell_timer_timeout(spell_name: String):
 			print("not allowed to cast yet!")
 
 		pcount -= 1
-		print ("wait start")
-		await get_tree().create_timer(projectile_delay).timeout #issue?
-		print ("wait end")
+		#print ("wait start")
+		await get_tree().create_timer(projectile_delay).timeout
+		#print ("wait end")
 

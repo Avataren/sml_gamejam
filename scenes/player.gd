@@ -29,9 +29,9 @@ func _ready():
 	spellbook.spell_collision_layer = 2
 	spellbook.spell_collision_mask = 0b00000000_00000000_00000000_00001000
 	add_child(spellbook)
-	print ("starting spells count:", len(starting_spells))
+	#print ("starting spells count:", len(starting_spells))
 	for spell in starting_spells:
-		print ("adding ", spell.name, " to spellbook")
+		#print ("adding ", spell.name, " to spellbook")
 		spellbook.add_spell(spell)
 		
 	wave_timer.one_shot = true
@@ -45,7 +45,7 @@ func _free_current_wave():
 			child.queue_free()
 		
 func _next_wave():
-	print ("next_wave ", current_wave_index, " out of ", len(all_waves))
+	#print ("next_wave ", current_wave_index, " out of ", len(all_waves))
 	if len(all_waves) > current_wave_index:
 		
 		_free_current_wave()
@@ -62,6 +62,7 @@ func _next_wave():
 	
 	
 func hit(damage):
+	$HurtAudioStreamPlayer.play()
 	if take_dmg_effect:
 		var effect = take_dmg_effect.instantiate()
 		effect.global_position = $aim_point.global_position

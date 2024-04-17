@@ -1,0 +1,33 @@
+[gd_scene load_steps=11 format=3 uid="uid://iwnxbylx4q4n"]
+
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="1_7c07y"]
+[ext_resource type="PackedScene" uid="uid://dertoe1q26aje" path="res://scenes/animated_goblin_body.tscn" id="2_x63ns"]
+[ext_resource type="PackedScene" uid="uid://bolfxasr1tq1d" path="res://scenes/animated_mushroom_body.tscn" id="3_g1mmy"]
+[ext_resource type="PackedScene" uid="uid://bcw7pt5uotbvl" path="res://scenes/animated_skeleton_body.tscn" id="4_jcmmh"]
+[ext_resource type="PackedScene" uid="uid://dc7ickbwxqn7o" path="res://scenes/animated_flying_eye_body.tscn" id="5_8uo5k"]
+[ext_resource type="PackedScene" uid="uid://ocnxjj72lmc3" path="res://scenes/boss1_animated_skeleton_body.tscn" id="6_gm3nh"]
+[ext_resource type="PackedScene" uid="uid://c0fiu5toi7wal" path="res://scenes/boss1_animated_goblin_body.tscn" id="7_mbiau"]
+[ext_resource type="PackedScene" uid="uid://cchfynhn2utiv" path="res://scenes/boss1_animated_flying_eye_body.tscn" id="8_oeyj7"]
+[ext_resource type="PackedScene" uid="uid://5y5yaug127ha" path="res://scenes/boss1_animated_mushroom_body.tscn" id="9_wbdyv"]
+
+[sub_resource type="Curve2D" id="Curve2D_ughlk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -282.867, -236.503, 0, 0, 0, 0, -9, -269, 0, 0, 0, 0, 257.109, -239.781, 0, 0, 0, 0, 244.933, 110.992, 0, 0, 0, 0, -14.9863, 133.94, 0, 0, 0, 0, -291.297, 110.992, 0, 0, 0, 0, -284.272, -234.63)
+}
+point_count = 7
+
+[node name="SpawnerPath" type="Path2D"]
+position = Vector2(37, 135)
+scale = Vector2(2.13528, 2.13528)
+curve = SubResource("Curve2D_ughlk")
+script = ExtResource("1_7c07y")
+spawn_list = Array[PackedScene]([ExtResource("2_x63ns"), ExtResource("3_g1mmy"), ExtResource("4_jcmmh"), ExtResource("5_8uo5k"), ExtResource("8_oeyj7"), ExtResource("7_mbiau"), ExtResource("9_wbdyv"), ExtResource("6_gm3nh"), ExtResource("5_8uo5k"), ExtResource("2_x63ns"), ExtResource("3_g1mmy"), ExtResource("4_jcmmh")])
+boss_spawn_list = Array[PackedScene]([ExtResource("6_gm3nh"), ExtResource("7_mbiau"), ExtResource("8_oeyj7"), ExtResource("9_wbdyv")])
+spawn_interval = 0.1
+path_speed = 10.0
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-191.788, -247.31)
+rotation = -0.118108
+progress = 91.7206

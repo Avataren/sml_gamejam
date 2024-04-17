@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://r3n64r1l4g0h"]
+[gd_scene load_steps=34 format=3 uid="uid://r3n64r1l4g0h"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_dis8l"]
 [ext_resource type="Texture2D" uid="uid://buujy5n3oh5xj" path="res://sprites/particles/starbright.tga" id="2_v26d5"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://5vunl0aejxuo" path="res://scenes/waves/wave5.tscn" id="7_g2g8l"]
 [ext_resource type="PackedScene" uid="uid://c35tmnxn801x6" path="res://scenes/waves/wave6.tscn" id="8_ue1h0"]
 [ext_resource type="AudioStream" uid="uid://c3esr2a3u31aq" path="res://sfx/death.wav" id="11_ax5iw"]
+[ext_resource type="AudioStream" uid="uid://gvq7035tdcrc" path="res://sfx/hitHurt.wav" id="15_e8pbx"]
 
 [sub_resource type="Resource" id="Resource_v7sti"]
 script = ExtResource("3_66nu1")
@@ -193,7 +194,7 @@ texture = ExtResource("5_e35pa")
 offset = Vector2(0, -40)
 hframes = 10
 vframes = 12
-frame = 52
+frame = 45
 
 [node name="shadow" type="Sprite2D" parent="Sprite2D"]
 self_modulate = Color(0.122, 0.122, 0.122, 0.324)
@@ -258,5 +259,8 @@ stream = ExtResource("11_ax5iw")
 libraries = {
 "": SubResource("AnimationLibrary_ctmqd")
 }
+
+[node name="HurtAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_e8pbx")
 
 [connection signal="area_exited" from="PlayerBoundsArea" to="." method="_on_area_2d_area_exited"]

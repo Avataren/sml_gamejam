@@ -32,17 +32,13 @@ func _ready() -> void:
 func spawn():
 	if spawn_list.size() == 0 || !Global.tilemap || Global.enemy_count >= Global.max_enemies || Global.enemy_count >= max_enemies_in_wave:
 		return
-	print ("getting spawn pos")
 	if !_get_valid_spawn_position():
 		print ("No valid spawn position found")
 		return
-	print ("spawning mob")
 	call_deferred("do_spawn")
 	
 func do_spawn():
-	print("do spawn")
 	var new_spawn = spawn_list.pick_random().instantiate()
-	print ("spawning ", new_spawn.name)
 	new_spawn.global_position = path_follow.global_position
 	get_parent().get_parent().add_child(new_spawn)
 	
@@ -51,14 +47,13 @@ func spawn_boss():
 	# dont' count bosses towards global enemy count
 	if boss_spawn_list.size() == 0:
 		return
-	print ("getting boss spawn pos")
 	if !_get_valid_spawn_position():
 		print ("No valid spawn position found")
 		return
-	print ("spawning boss")
-	for new_spawn in boss_spawn_list:
+	for boss in boss_spawn_list:
 		if !_get_valid_spawn_position():
 			continue
+		var new_spawn = boss.instantiate()
 		new_spawn.global_position = path_follow.global_position
 		get_parent().get_parent().add_child.call_deferred(new_spawn)	
 		path_follow.set_progress_ratio( path_follow.get_progress_ratio() + 0.1)

@@ -9,7 +9,6 @@ var t_speed = 2.5
 func _ready():
 	start_t = Time.get_unix_time_from_system() * t_speed
 	super()
-	print ("creating damage shield!")
 	if $AudioStreamPlayer2D:
 		$AudioStreamPlayer2D.play()
 
