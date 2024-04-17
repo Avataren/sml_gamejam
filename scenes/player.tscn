@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://r3n64r1l4g0h"]
+[gd_scene load_steps=35 format=3 uid="uid://r3n64r1l4g0h"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_dis8l"]
 [ext_resource type="Texture2D" uid="uid://buujy5n3oh5xj" path="res://sprites/particles/starbright.tga" id="2_v26d5"]
@@ -14,7 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://5vunl0aejxuo" path="res://scenes/waves/wave5.tscn" id="7_g2g8l"]
 [ext_resource type="PackedScene" uid="uid://c35tmnxn801x6" path="res://scenes/waves/wave6.tscn" id="8_ue1h0"]
 [ext_resource type="AudioStream" uid="uid://c3esr2a3u31aq" path="res://sfx/death.wav" id="11_ax5iw"]
-[ext_resource type="AudioStream" uid="uid://gvq7035tdcrc" path="res://sfx/hitHurt.wav" id="15_e8pbx"]
+[ext_resource type="PackedScene" uid="uid://iwnxbylx4q4n" path="res://scenes/waves/wave7.tscn" id="11_h8rld"]
+[ext_resource type="AudioStream" uid="uid://ckdlmlomymbdg" path="res://scenes/waves/hithurt2.wav" id="16_3i44q"]
 
 [sub_resource type="Resource" id="Resource_v7sti"]
 script = ExtResource("3_66nu1")
@@ -168,7 +169,7 @@ y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_dis8l")
 starting_spells = Array[ExtResource("3_66nu1")]([SubResource("Resource_v7sti")])
-all_waves = Array[PackedScene]([ExtResource("6_833xn"), ExtResource("4_uyxk8"), ExtResource("5_bbyfw"), ExtResource("6_gqfll"), ExtResource("7_g2g8l"), ExtResource("8_ue1h0")])
+all_waves = Array[PackedScene]([ExtResource("6_833xn"), ExtResource("4_uyxk8"), ExtResource("5_bbyfw"), ExtResource("6_gqfll"), ExtResource("7_g2g8l"), ExtResource("8_ue1h0"), ExtResource("11_h8rld"), ExtResource("11_h8rld"), ExtResource("11_h8rld")])
 
 [node name="PlayerBoundsArea" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -261,6 +262,6 @@ libraries = {
 }
 
 [node name="HurtAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_e8pbx")
+stream = ExtResource("16_3i44q")
 
 [connection signal="area_exited" from="PlayerBoundsArea" to="." method="_on_area_2d_area_exited"]

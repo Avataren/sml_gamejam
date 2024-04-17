@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var loot_table: Array[PackedScene]
 var last_position: Vector2
 var actual_velocity:= 0.0
-@export var hp = 2
+@export var hp:float = 2.
 var alive = true
 var spellbook:Spellbook
 var aim_point:Vector2

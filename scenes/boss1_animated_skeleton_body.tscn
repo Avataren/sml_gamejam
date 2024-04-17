@@ -182,9 +182,9 @@ motion_mode = 1
 script = ExtResource("1_e1ahl")
 speed = 60.0
 loot_table = Array[PackedScene]([ExtResource("2_qsrjt")])
-hp = 10
+despawn_distance = 2500.0
 starting_spells = Array[ExtResource("3_fqplp")]([SubResource("Resource_l0vno")])
-spell_distance = 800.0
+spell_distance = 1500.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 

@@ -142,8 +142,9 @@ motion_mode = 1
 script = ExtResource("1_pmhok")
 speed = 65.0
 loot_table = Array[PackedScene]([ExtResource("2_bsa2v")])
-hp = 40
+despawn_distance = 2500.0
 starting_spells = Array[Resource("res://resources/SpellResource.gd")]([ExtResource("2_ss6qo")])
+spell_distance = 1500.0
 
 [node name="spell_cast_point" type="Marker2D" parent="."]
 position = Vector2(1, -36)

@@ -137,7 +137,7 @@ collision_layer = 2
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_rn2ss")
-hp = 6
+despawn_distance = 1200.0
 
 [node name="spell_cast_point" type="Marker2D" parent="."]
 position = Vector2(1, -36)
