@@ -5,8 +5,8 @@ class_name SpellResource
 @export var name : String = "new spell"
 @export var hitpoints : int = 1
 @export var cooldown: float = 1.
-@export var speed = 100.
-@export var damage = 1.
+@export var speed:float = 100.
+@export var damage:float = 1.
 @export var icon: Texture2D
 @export var spell_scene: PackedScene
 @export var life_time: float = 5.0

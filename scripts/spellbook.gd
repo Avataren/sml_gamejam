@@ -9,7 +9,7 @@ var spell_collision_layer = 1
 var spell_collision_mask = 1
 
 func add_spell(spell_resource: SpellResource):
-	spells[spell_resource.name] = spell_resource
+	spells[spell_resource.name] = spell_resource.duplicate()
 	var timer = Timer.new()
 	add_child(timer)
 	timer.set_wait_time(spell_resource.cooldown)
@@ -20,6 +20,12 @@ func add_spell(spell_resource: SpellResource):
 	timers[spell_resource.name] = timer
 	_on_spell_timer_timeout(spell_resource.name)
 
+func upgrade_spell(name):
+	spells[name].projectile_delay *= 0.95
+	spells[name].projectile_count += 1
+	spells[name].damage *= 1.25
+	spells[name].speed *= 1.05
+	
 func _exit_tree():
 	for timer in timers:
 		timers[timer].queue_free()

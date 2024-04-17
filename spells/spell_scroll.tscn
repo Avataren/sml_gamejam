@@ -91,6 +91,7 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ig1lh")
 spells_list = Array[ExtResource("6_jiufd")]([ExtResource("2_uxihp"), SubResource("Resource_he5x6"), ExtResource("4_m3ejt"), SubResource("Resource_32sfb"), ExtResource("8_ghsa6")])
 pickup_effect = ExtResource("5_aqwcv")
+upgrade_effect = ExtResource("5_aqwcv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
