@@ -28,8 +28,8 @@ settings/stdout/print_fps=true
 
 window/size/viewport_width=960
 window/size/viewport_height=540
-window/size/window_width_override=1920
-window/size/window_height_override=1080
+window/size/window_width_override=512
+window/size/window_height_override=384
 window/stretch/mode="viewport"
 mouse_cursor/custom_image="res://ui/cursor.png"
 

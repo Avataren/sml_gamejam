@@ -15,7 +15,7 @@ var spell_cast_point:Vector2
 @export var spell_distance := 1000.0
 func _ready():
 	add_to_group("enemy")
-	_play_animation_rnd("idle")
+	_play_animation_rnd.call_deferred("idle")
 	last_position = global_position
 	aim_point = $aim_point.global_position
 	
@@ -25,9 +25,9 @@ func _ready():
 	spellbook = Spellbook.new()
 	spellbook.spell_collision_layer = 1
 	spellbook.spell_collision_mask = 0b00000000_00000000_00000000_00000001
-	add_child(spellbook)
+	add_child.call_deferred(spellbook)
 	for spell in starting_spells:
-		spellbook.add_spell(spell)	
+		spellbook.add_spell.call_deferred(spell)	
 	
 func _exit_tree():
 	Global.enemy_count-=1
