@@ -16,15 +16,15 @@ func add_spell(spell_resource: SpellResource):
 	timer.set_one_shot(false)
 	timer.start()
 	var callable = Callable(self, "_on_spell_timer_timeout").bind(spell_resource.name)
-	timer.timeout.connect(callable)
+	timer.timeout.connect.call_deferred(callable)
 	timers[spell_resource.name] = timer
 	_on_spell_timer_timeout(spell_resource.name)
 
-func upgrade_spell(name):
-	spells[name].projectile_delay *= 0.95
-	spells[name].projectile_count += 1
-	spells[name].damage *= 1.25
-	spells[name].speed *= 1.05
+func upgrade_spell(upgrade_name):
+	spells[upgrade_name].projectile_delay *= 0.95
+	spells[upgrade_name].projectile_count += 1
+	spells[upgrade_name].damage *= 1.25
+	spells[upgrade_name].speed *= 1.05
 	
 func _exit_tree():
 	for timer in timers:
@@ -53,7 +53,7 @@ func cast_spell(spell_name: String, position: Vector2, direction: Vector2):
 	if particles:
 		particles.self_modulate = spells[spell_name].tint
 		
-	get_parent().get_parent().add_child.call_deferred(spell)
+	get_parent().get_parent().add_child(spell)
 	#await get_tree().create_timer(timeout).timeout
 
 func get_spell_component(spell, type_name:String) -> Node:
@@ -103,5 +103,5 @@ func _on_spell_timer_timeout(spell_name: String):
 			print("not allowed to cast yet!")
 
 		pcount -= 1
-		await get_tree().create_timer(projectile_delay).timeout
+		await get_tree().create_timer(projectile_delay).timeout #issue?
 

@@ -34,7 +34,7 @@ func impact_effect(pos):
 	if (explosion):
 		explosion_instance = explosion.instantiate();
 		explosion_instance.global_position = pos 
-		get_parent().add_child(explosion_instance)
+		get_parent().add_child.call_deferred(explosion_instance)
 		
 func start_rotating():
 	rotating = true

@@ -10,11 +10,11 @@ func _on_body_entered(body: Node2D) -> void:
 			body.spellbook.upgrade_spell(new_spell.name)
 			if upgrade_effect:
 				var effect = pickup_effect.instantiate()
-				get_parent().get_parent().add_child(effect)	
+				get_parent().get_parent().add_child.call_deferred(effect)
 		else:
 			if pickup_effect:
 				var effect = pickup_effect.instantiate()
-				get_parent().get_parent().add_child(effect)			
+				get_parent().get_parent().add_child.call_deferred(effect)
 			body.spellbook.add_spell(new_spell)
 		#var filtered_spells = spells_list.filter(func(item):
 			#return not body.spellbook.spells.has(item.name)

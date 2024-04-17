@@ -14,7 +14,7 @@ func impact_effect(_pos):
 	if (explosion):
 		explosion_instance = explosion.instantiate();
 		explosion_instance.global_position = global_position + Vector2(0,50)
-		get_parent().add_child(explosion_instance)
+		get_parent().add_child.call_deferred(explosion_instance)
 		
 func death_effect():		
 		$GPUParticles2D.emitting = false

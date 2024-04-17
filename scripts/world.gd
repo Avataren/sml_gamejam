@@ -76,8 +76,8 @@ func _process(_delta):
 			music_player.play()
 			await get_tree().create_timer(1.4).timeout
 			end_screen = game_over_scene.instantiate()
-			end_screen.connect("game_over", end_game)
-			get_tree().root.add_child(end_screen)
+			end_screen.connect.call_deferred("game_over", end_game)
+			get_tree().root.add_child.call_deferred(end_screen)
 	
 func end_game():
 	%AudioStreamPlayer.stop()

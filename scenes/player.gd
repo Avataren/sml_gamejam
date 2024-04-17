@@ -35,6 +35,7 @@ func _ready():
 		spellbook.add_spell(spell)
 		
 	wave_timer.one_shot = true
+	wave_timer.timeout.connect.call_deferred(_next_wave)
 	add_child(wave_timer)
 	_next_wave()
 
@@ -51,9 +52,8 @@ func _next_wave():
 		current_wave = all_waves[current_wave_index].instantiate()
 		add_child(current_wave)
 		current_wave_index+=1
-		
 		wave_timer.set_wait_time(current_wave.wave_duration)
-		wave_timer.timeout.connect(_next_wave)
+		wave_timer.one_shot = true
 		wave_timer.start()		
 	else:
 		current_wave_index = 0

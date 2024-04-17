@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c8ilufvo5si26"]
+[gd_scene load_steps=23 format=3 uid="uid://c8ilufvo5si26"]
 
 [ext_resource type="Texture2D" uid="uid://4q8pj0qnm85l" path="res://sprites/scroll_shadow_64.png" id="1_fc7fw"]
 [ext_resource type="Script" path="res://spells/spell_scroll.gd" id="1_ig1lh"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://bqhlqabhq3122" path="res://spells/comet_strike.tres" id="8_ghsa6"]
 [ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="9_g024o"]
 [ext_resource type="AudioStream" uid="uid://dmly4p2cbdqgr" path="res://sfx/magic_words.wav" id="10_18jsm"]
+[ext_resource type="Resource" uid="uid://wtmsl82pox06" path="res://spells/magic_missle.tres" id="10_w0qqq"]
 
 [sub_resource type="Resource" id="Resource_he5x6"]
 resource_local_to_scene = true
@@ -89,7 +90,7 @@ turbulence_noise_scale = 3.599
 [node name="SpellScroll" type="Area2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ig1lh")
-spells_list = Array[ExtResource("6_jiufd")]([ExtResource("2_uxihp"), SubResource("Resource_he5x6"), ExtResource("4_m3ejt"), SubResource("Resource_32sfb"), ExtResource("8_ghsa6")])
+spells_list = Array[ExtResource("6_jiufd")]([ExtResource("2_uxihp"), SubResource("Resource_he5x6"), ExtResource("4_m3ejt"), SubResource("Resource_32sfb"), ExtResource("8_ghsa6"), ExtResource("10_w0qqq")])
 pickup_effect = ExtResource("5_aqwcv")
 upgrade_effect = ExtResource("5_aqwcv")
 
