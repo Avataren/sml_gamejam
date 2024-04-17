@@ -41,5 +41,8 @@ texture_scale = 0.5
 unique_name_in_owner = true
 stream = ExtResource("6_3or17")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

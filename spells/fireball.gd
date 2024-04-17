@@ -16,7 +16,5 @@ func impact_effect(_pos):
 		get_parent().add_child(explosion_instance)
 		
 func death_effect():		
-	if $GPUParticles2D:
-		$GPUParticles2D.emitting = false
-	if $Sprite2D:
-		$Sprite2D.visible = false
+	$GPUParticles2D.emitting = false
+	$Sprite2D.visible = false
