@@ -17,3 +17,6 @@ life_time = 5.0
 radius = 100.0
 tint = Color(0.548963, 0.548963, 0.548963, 1)
 projectile_count = 3
+projectile_spread = 10.0
+projectile_delay = 0.1
+random_direction = true

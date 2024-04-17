@@ -67,14 +67,26 @@ func _on_spell_timer_timeout(spell_name: String):
 	print("parent is: ", parent.name)
 	var pcount = spells[spell_name].projectile_count
 	print("pcount is ", pcount)
-	var base_direction = parent.get_spell_casting_direction(spell_name).normalized()
+	
+	var base_direction;
+	if !spells[spell_name].random_direction:
+		base_direction = parent.get_spell_casting_direction(spell_name).normalized()  
+	else:
+		base_direction = Vector2(randf()*2.0 - 1.0,randf()*2.0-1.0).normalized()
+		
 	var degree_offset =spells[spell_name].projectile_spread # degrees of separation between projectiles
 	var radian_offset = deg_to_rad(degree_offset)  # Convert degrees to radians
 	var half_offset_count = (pcount - 1) / 2.0  # Calculate half the number of offsets for symmetric distribution
-
+	var projectile_delay = spells[spell_name].projectile_delay
+	var direction_adjustment
+	
 	while pcount > 0:
 		var index = pcount - 1
-		var direction_adjustment = (index - half_offset_count) * radian_offset
+		if !spells[spell_name].random_direction:
+			direction_adjustment = (index - half_offset_count) * radian_offset
+		else:
+			direction_adjustment = randf()*2.0*PI - 1.0*PI
+			
 		var direction = base_direction.rotated(direction_adjustment)
 		var base_position = parent.get_spell_casting_position(spell_name)
 		var position = base_position
@@ -85,5 +97,5 @@ func _on_spell_timer_timeout(spell_name: String):
 			print("not allowed to cast yet!")
 
 		pcount -= 1
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(projectile_delay).timeout
 

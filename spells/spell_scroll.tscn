@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://d0b6er21yowdo" path="res://sprites/lights/light3_noise.png" id="9_g024o"]
 [ext_resource type="AudioStream" uid="uid://dmly4p2cbdqgr" path="res://sfx/magic_words.wav" id="10_18jsm"]
 
-[sub_resource type="Resource" id="Resource_512gj"]
+[sub_resource type="Resource" id="Resource_he5x6"]
 resource_local_to_scene = true
 script = ExtResource("6_jiufd")
 name = "Magic Missile"
@@ -30,8 +30,10 @@ radius = 100.0
 tint = Color(0, 0.799456, 0.799576, 1)
 projectile_count = 1
 projectile_spread = 10.0
+projectile_delay = 0.1
+random_direction = false
 
-[sub_resource type="Resource" id="Resource_0e7ui"]
+[sub_resource type="Resource" id="Resource_32sfb"]
 resource_local_to_scene = true
 script = ExtResource("6_jiufd")
 name = "Poison cloud"
@@ -46,6 +48,8 @@ radius = 150.0
 tint = Color(0.239942, 1.64006e-05, 0.211712, 1)
 projectile_count = 1
 projectile_spread = 10.0
+projectile_delay = 0.1
+random_direction = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2xpc"]
 radius = 22.0
@@ -85,7 +89,7 @@ turbulence_noise_scale = 3.599
 [node name="SpellScroll" type="Area2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ig1lh")
-spells_list = Array[ExtResource("6_jiufd")]([ExtResource("2_uxihp"), SubResource("Resource_512gj"), ExtResource("4_m3ejt"), SubResource("Resource_0e7ui"), ExtResource("8_ghsa6")])
+spells_list = Array[ExtResource("6_jiufd")]([ExtResource("2_uxihp"), SubResource("Resource_he5x6"), ExtResource("4_m3ejt"), SubResource("Resource_32sfb"), ExtResource("8_ghsa6")])
 pickup_effect = ExtResource("5_aqwcv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

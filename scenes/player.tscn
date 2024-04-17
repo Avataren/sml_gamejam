@@ -29,6 +29,8 @@ radius = 100.0
 tint = Color(0, 0.799456, 0.799576, 1)
 projectile_count = 1
 projectile_spread = 10.0
+projectile_delay = 0.1
+random_direction = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omb5e"]
 size = Vector2(1050, 657)

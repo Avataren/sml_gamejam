@@ -14,3 +14,5 @@ class_name SpellResource
 @export var tint:Color = Color.WHITE
 @export var projectile_count:int = 1
 @export var projectile_spread:float = 10
+@export var projectile_delay:float = 0.1
+@export var random_direction:bool = false
