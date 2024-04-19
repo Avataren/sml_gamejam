@@ -84,5 +84,7 @@ escape={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method.mobile="forward_plus"
+renderer/rendering_method.web="forward_plus"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 viewport/hdr_2d=true
