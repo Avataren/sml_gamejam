@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c6gcstwijpfrl" path="res://spells/damage_shield.tscn" id="3_u0esn"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_0s7ql")
 name = "Damage Shield"
 hitpoints = 1000
